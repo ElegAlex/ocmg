@@ -1,0 +1,87 @@
+.datepicker {
+    border: @calendrier-border-size solid @calendrier-border-color;
+    background: @calendrier-background-color;
+
+    .header {
+        background: @calendrier-header-background-color;
+
+        .titleText {
+            color: @calendrier-header-title-color;
+        }
+
+        .next,
+        .previous,
+        .closeButton {
+            background: @calendrier-header-boutons-background-color;
+            color: @calendrier-header-boutons-color;
+        }
+
+    }
+
+    .days{
+        .day {
+            background: @calendrier-day-background-color;
+        }
+        .semaine,
+        .week {
+            background-color: @calendrier-week-background-color !important;
+        }
+        .title {
+            background: @calendrier-title-background-color;
+        }
+        .otherMonth {
+            background: @calendrier-month-background-color;
+            color: @calendrier-month-color;
+        }
+    }
+
+    .unavailable,
+    .body .days .week .day.unavailable:hover {
+        color: @calendrier-unavailable-color !important;
+    }
+
+    .current {
+        background: @calendrier-current-background-color !important;
+        color: @calendrier-current-color;
+    }
+
+    .days .week .day,
+    .months .month,
+    .years .year {
+        color: @calendrier-item-color;
+    }
+
+    .days .week .semaine:hover {
+        background: @calendrier-item-hover-background-color !important;
+    }
+
+    .selected  {
+        background-color: @calendrier-selected-background-color !important;
+    }
+
+    td{
+        color: @calendrier-td-color;
+    }
+    th{
+        color: @calendrier-th-color;
+    }
+}
+
+.titre_aujourdhui {
+    color: @calendrier-aujourdhui-color;
+    text-decoration: underline;
+}
+
+.titre_aujourdhui[aria-disabled=true] {
+    color: @calendrier-aujourdhui-disabled-color;
+    text-decoration: none;
+}
+
+.titre_navigation_mois ,
+.titre_navigation_annee{
+    background-color: @calendrier-title-mois-annee-background-color;
+}
+
+.nonouvrable {
+    background-color: @calendrier-nonouvrable-background-color !important;
+}

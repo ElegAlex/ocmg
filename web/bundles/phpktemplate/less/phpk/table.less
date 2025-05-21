@@ -1,0 +1,254 @@
+.tab-box {
+
+    .tab-body {
+
+        max-width: 100%;
+
+        table {
+            table-layout: fixed;
+
+            &.liste {
+                tr {
+                    td {
+                        vertical-align: middle;
+                        &:first-child:before {
+                            content: "- ";
+                        }
+                    }
+                }
+            }
+
+            .trClickable:hover {
+                background-color:@table-tr-clickable-hover-background-color;
+                cursor: pointer;
+            }
+
+            .tri-asc a,
+            .tri-desc a,
+            .tri {
+                background-color: @table-tr-tri-background-color;
+            }
+
+            tr {
+                line-height: @table-tr-line-height;
+
+                &.impair {
+                    background-color: @table-tr-impair-background-color;
+                    /**
+                     * Gestion des background de cellules impaires
+                     */
+                    td {
+                        &.bg-rouge {
+                            background-color: @color-rouge-3;
+                        }
+                        &.bg-vert {
+                            background-color: @color-vert-8;
+                        }
+                    }
+                }
+
+                &.pair{
+                    background-color: @table-tr-pair-background-color;
+                    /**
+                     * Gestion des background de cellules paires
+                     */
+                    td {
+                        &.bg-rouge {
+                            background-color: darken(@color-rouge-3, 5%);
+                        }
+                        &.bg-vert {
+                            background-color: darken(@color-vert-8, 5%);
+                        }
+                    }
+                }
+
+                &:hover {
+                    background-color: @table-tr-hover-background-color;
+                    /**
+                     * Gestion des background de cellule au hover sur la ligne
+                     */
+                    td {
+                        &.bg-rouge {
+                            background-color: darken(@color-rouge-3, 10%);
+                        }
+                        &.bg-vert {
+                            background-color: darken(@color-vert-8, 10%);
+                        }
+                    }
+                }
+
+                &>td[display=table-cell]:first-child {
+                    border-left: none;
+                }
+
+                th {
+
+                    background-color: @table-th-background-color;
+                    color: @table-th-color;
+                    border-left: 1px solid @table-th-border-color;
+                    border-bottom: 1px solid @table-th-border-color;
+
+                    &.pictogramme {
+                        /* Permet de gagner de la place (15px à gauche / 15px à droite)
+                           dans le cas d'une colonne dédiée à une icone, comme une loupe */
+                        padding: 0;
+                    }
+
+                    &.colnum a,
+                    a {
+                        color: @table-th-a-color;
+                        &:hover {
+                            color: @table-th-a-color;
+                            background-color: @table-th-a-hover-background-color;
+                        }
+                    }
+                }
+
+                td {
+
+                    border-left: 1px solid @table-td-border-color;
+                    color: @table-td-color;
+
+                    div {
+                        word-break: break-all;
+                        text-overflow: ellipsis;
+                        overflow-y: hidden;
+                        overflow: hidden;
+                        vertical-align: middle;
+                        position: relative;
+                    }
+
+                    &.pictogramme {
+                        /* Permet de gagner de la place (15px à gauche / 15px à droite)
+                           dans le cas d'une colonne dédiée à une icone, comme une loupe */
+                        padding: 0;
+                    }
+
+                    a.doc-pdf,
+                    a.doc-excel,
+                    a.doc-tout-format,
+                    a.doc-word,
+                    a.doc-archive,
+                    a.piece-joint {
+                        padding: 3px 0px 4px 18px !important;
+                    }
+
+                    a.modale_ajax {
+                        height: 18px;
+                    }
+
+                    &.phpk_decorator_loupe {
+
+                        .vue-detail {
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            background-image: url('../../biblicnam/images/table/btn_vuedetail.gif');
+                        }
+                    }
+
+                }
+            }
+        }
+
+    }
+}
+
+.phpk_table {
+
+    tr {
+
+        &.filtre {
+
+            &.ligne2 {
+                position: relative;
+            }
+
+            .phpk_table_export {
+                float: right;
+                margin-top: 7px;
+
+                a {
+                    margin-right: 0px;
+                    margin-left: 0px;
+                }
+            }
+
+            td {
+                background: @table-td-background-color;
+                .colorpicker-input{
+                    width: 90%;
+                }
+                .colorpicker-box {
+                    border-top: none;
+                }
+            }
+
+            &>td:last-child  {
+                .colorpicker-box {
+                    ul {
+                        li {
+                            clear: none !important;
+                        }
+                    }
+                }
+            }
+
+            &.top {
+                &>td {
+                    padding-top: 5px !important;
+                }
+            }
+
+        }
+
+        td {
+            &.phpk_decorator_integer,
+            &.phpk_decorator_float {
+                text-align: right;
+            }
+            &.phpk_decorator_checkbox {
+                text-align: center;
+            }
+            &.phpk_decorator_color {
+                text-align: center !important;
+                .phpk_champ_color {
+                    width: 90%;
+                    min-height: 20px;
+                    border: @input-border-size solid @input-border-color;
+                }
+            }
+        }
+
+    }
+}
+
+.top td{
+    border-top: 3px solid @table-top-td-border-color;
+}
+
+.paging td {
+    background-color: @table-paging-td-background-color;
+    border-top: 3px solid @table-paging-td-border-color;
+}
+
+.champ_filtre {
+    border: 1px solid @table-champ_filtre-border-color;
+}
+
+.resultat {
+    color: @table-resultat-color;
+}
+
+.filtre input {
+    border:1px solid @table-filtre-input-border-color;
+    background: @table-filtre-input-background-color;
+}
+
+.pagination {
+    color: @table-pagination-color;
+}
+
+/* Les colonnes "longText" ont une max width définie pour les deux modes différents */
+.phpk_core_mode_accessmaster .tab-body td.longText {
+    max-width: 200px;
+}

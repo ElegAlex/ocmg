@@ -1,0 +1,186 @@
+td.phpk_decorator_pictogramme i.fa {
+    position:relative;
+    top:10px;
+    left:5px;
+}
+
+.icone-pictogramme {
+    background:none;
+
+    &:before{
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        margin-right: 10px;
+        text-decoration: none;
+        position: relative;
+        bottom: 2px;
+        color: black;
+        font-size: 1rem;
+        font-size: 1.3em\9; /* IE8 et versions inférieures */
+    }
+
+    &-doc-archive {
+        &:before {
+            content: "\f187";
+            color: @color-orange;
+        }
+    }
+    &-doc-archive-inactif {
+        &:before {
+            content: "\f187";
+            color: @color-gris-6;
+        }
+    }
+    &-arbo-courrier {
+        &:before {
+            content: "\f003";
+        }
+    }
+    &-arbo-email {
+        &:before {
+            content: "\f1fa";
+        }
+    }
+    &-arbo-no-ok {
+        &:before {
+            content: "\f06a";
+            color: @color-rouge-1;
+        }
+    }
+    &-arbo-fax {
+        &:before {
+            content: "\f1ac";
+        }
+    }
+    &-document {
+        &:before {
+            content: "\f016";
+        }
+    }
+    &-document-inactif {
+        &:before {
+            content: "\f016";
+            color: @color-gris-6;
+        }
+    }
+    &-doc-excel {
+        &:before {
+            content: "\f1c3";
+            color: @color-vert-1;
+        }
+    }
+    &-doc-excel-inactif {
+        &:before {
+            content: "\f1c3";
+            color: @color-gris-6;
+        }
+    }
+    &-pdf {
+        &:before {
+            content: "\f1c1";
+            color: @color-rouge-1;
+        }
+    }
+    &-pdf-inactif {
+        &:before {
+            content: "\f1c1";
+            color: @color-gris-6;
+        }
+    }
+    &-doc-word {
+        &:before {
+            content: "\f1c2";
+            color: @color-bleu-1;
+        }
+    }
+    &-doc-word-inactif {
+        &:before {
+            content: "\f1c2";
+            color: @color-gris-6;
+        }
+    }
+    &-arbo-echeancier {
+        &:before {
+            content: "\f017";
+        }
+    }
+    &-liste-supp {
+        &:before {
+            color: @color-vert-6;
+            content: '\f059';
+        }
+    }
+    &-liste-supp-survol {
+        &:before {
+            color: @color-vert-11;
+            content: '\f059';
+        }
+    }
+    &-pastille-blanc {
+        &:before {
+            content: "\f111";
+            color:@color-blanc;
+        }
+    }
+    &-pastille-bleu {
+        &:before {
+            content: "\f111";
+            color:@color-bleu-1;
+        }
+    }
+    &-pastille-gris {
+        &:before {
+            content: "\f111";
+            color:@color-gris-1;
+        }
+    }
+    &-pastille-noir {
+        &:before {
+            content: "\f111";
+            color: @color-noir;
+        }
+    }
+    &-pastille-orange {
+        &:before {
+            content: "\f111";
+            color:@color-orange-1;
+        }
+    }
+    &-pastille-rouge {
+        &:before {
+            content: "\f111";
+            color:@color-rouge-1;
+        }
+    }
+    &-pastille-vert {
+        &:before {
+            content: "\f111";
+            color:@color-vert-13;
+        }
+    }
+    &-piece-jointe {
+        &:before {
+            content: "\f0c6";
+        }
+    }
+    &-piece-jointe-inactif {
+        &:before {
+            content: "\f0c6";
+            color: @color-gris-6;
+        }
+    }
+    &-arbo-tel {
+        &:before {
+            content: "\f095";
+            color: @color-rouge-1;
+        }
+    }
+    &-erreur {
+        &:before {
+            content: "\f06a";
+            color: @color-rouge-1;
+        }
+    }
+}

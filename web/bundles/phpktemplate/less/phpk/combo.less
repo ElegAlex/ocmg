@@ -1,0 +1,64 @@
+
+.chzn-container {
+
+    .chzn-drop {
+        background: @input-background-color;
+        border: @input-border-size solid @input-border-color;
+    }
+
+    .chzn-drop-up {
+        border-top: @input-border-size solid @input-border-color;
+    }
+
+    .chzn-results {
+        .highlighted {
+            background: @input-select-hover-background-color;
+            color: @input-select-hover-font-color;
+            em {
+                background: transparent;
+            }
+        }
+        .no-results {
+            background: @input-select-noresult-color;
+        }
+        .group-result {
+            color: @input-select-group-color;
+        }
+    }
+}
+
+.chzn-container-single {
+    .chzn-single {
+        background-color: @form-label-background-color;
+        border: @input-border-size solid @input-border-color;
+        color: @form-label-color;
+        .btn-down {
+            border-left: @input-border-size solid @input-border-color;
+        }
+    }
+}
+
+.chzn-container-active{
+    .chzn-single {
+        border: @input-border-size solid @input-border-color;
+    }
+    .chzn-single-with-drop {
+        border: @input-border-size solid @input-border-color;
+        .btn-down {
+            background: transparent;
+        }
+    }
+    .chzn-choices {
+        border: @input-border-size solid @input-border-color;
+        .search-field input {
+            color: #111 !important;
+        }
+    }
+}
+
+.erreur_combo .chzn-container > a {
+    border: @input-border-size solid @input-error-color;
+}
+.erreur_combo .chzn-container-single .chzn-single {
+    background-color: @input-error-background-color;
+}

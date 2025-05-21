@@ -1,0 +1,82 @@
+.bouton {
+
+    &.intermediaire  {
+
+        .btn_action {
+            &>span {
+                &>span {
+                    color: @bouton-intermediaire-action-color;
+                }
+            }
+        }
+
+        .btn_inactif {
+            &>span {
+                &>span {
+                    color: @bouton-intermediaire-inactif-color;
+                }
+            }
+        }
+
+    }
+
+    .btn_defaut{
+        &>span {
+            &>span {
+                color: @bouton-defaut-color;
+            }
+        }
+    }
+
+    .btn_action {
+        &>span {
+            &>span {
+                color: @bouton-action-color;
+            }
+        }
+    }
+
+    &:not([class=intermediaire]){
+        .avec_img {
+            height: 30px;
+            &>span {
+                height: 30px;
+                &>span {
+                    height: 30px;
+                    &>span[class^=btn_] {
+                        min-height: 24px;
+                    }
+                }
+            }
+        }
+    }
+
+    .btn_inactif {
+        &>span {
+            &>span {
+                color: @bouton-inactif-color;
+            }
+        }
+    }
+
+    &:hover {
+        .btn_defaut{
+            &>span {
+                &>span {
+                    color: @bouton-defaut-hover-color;
+                }
+            }
+        }
+
+        &.intermediaire  {
+            .btn_action {
+                &>span {
+                    &>span {
+                        color: @bouton-intermediaire-hover;
+                    }
+                }
+            }
+        }
+    }
+
+}

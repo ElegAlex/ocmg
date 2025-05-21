@@ -1,0 +1,97 @@
+#entete {
+
+    background-color: @entete-background-color;
+
+    .logoCNAM {
+        z-index: 1;
+    }
+    #indication_logo {
+        position: absolute;
+        top: @entete-indication-logo-top;
+        left: @entete-indication-logo-left;
+        z-index: 2;
+        font-weight: bold;
+        color: #B9D41D; /* La couleur ne dois pas être modifiée car intégrée au logo AM */
+        font-size: 0.8em;
+    }
+
+    h1,
+    h2 {
+
+        a.app {
+            color:@entete-lien-app-color;
+            &:hover {
+                color:@entete-lien-app-color;
+            }
+        }
+
+    }
+
+    h2 {
+        background: @entete-h2-background-color;
+    }
+
+    .liens-entete {
+        .btn-quitter {
+            color:@entete-lien-quitter-color;
+        }
+        .lien {
+            color:@entete-lien-color;
+            border-right: 1px solid @entete-lien-border-color;
+        }
+        a:hover { color:@entete-lien-hover-color;}
+    }
+
+    .lien-interApplication{
+        &:hover {
+            color: #000000;
+        }
+    }
+
+    .ia-link a {
+        border-right: 1px solid #D1D1D1;
+        color: #097182;
+    }
+
+    .ia-select {
+        background-color: #FFF;
+        border: 1px solid #CCCCCC;
+        color: #444444;
+    }
+
+    .ia-list {
+        border-right: 1px solid #D1D1D1;
+    }
+
+    .ia-banner {
+        border-right: 1px solid #D1D1D1;
+    }
+
+    .ia-select-btn {
+        border-left: 1px solid #CCCCCC;
+    }
+
+    .ia-select-btn b {
+        background-color: #FFFFFF;
+    }
+
+    .ia-select-dropdown {
+        background: #FFF;
+        border: 1px solid #ccc;
+    }
+
+    .ia-select-dropdown ul li a:hover, .ia-select-dropdown .hightlight{
+        background-color: #04819E;
+        color: #fff;
+    }
+
+    .ia-banner ul a:hover img {
+        background-color: #E9F6C3;
+    }
+
+    #bandeau-suivant {
+        background-color:white;
+    }
+
+}
+

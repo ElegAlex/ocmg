@@ -1,0 +1,25 @@
+.zone_autocompletion{
+    background-color: @input-background-color;
+    border-top:@input-border-size solid @input-border-color;
+    border-bottom:@input-border-size solid @input-border-color;
+    border-right:@input-border-size solid @input-border-color;
+
+    ul{
+        color: @input-font-color;
+        background-color: @input-background-color;
+
+        li{
+            border-left:@input-border-size solid @input-border-color;
+            &.li-hover{
+                background-color: @input-select-hover-background-color;
+                color: @input-select-hover-font-color;
+            }
+            &.new-categorie{
+                border-top: @input-border-size solid @input-border-color;
+            }
+            span.categorie {
+                color: @input-select-group-background-color;
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+.arbo {
+
+    li {
+        a {
+            color: @arborescence-li-color;
+        }
+
+        li {
+            border-left: 1px solid @arborescence-li-border-color;
+            span {
+                color: @arborescence-li-color;
+            }
+        }
+    }
+
+    .actions {
+        background-color: @arborescence-action-background-color;
+    }
+
+    a {
+        &:focus{ background-color: @arborescence-focus-background-color;}
+        &.selected{ background-color: @arborescence-selected-background-color; }
+    }
+
+    .inactif{color: @arborescence-inactif-color;}
+
+}

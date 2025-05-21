@@ -1,0 +1,42 @@
+.calendrier {
+    margin-left: 0px;
+    margin-left: -4px\9; /* Hack ie8 */
+    margin-right: 0px;
+    background: none;
+    &:before {
+        .gradient(top, @color-vert-9, darken(@color-vert-9,10%));
+        border:1px solid @input-border-color;
+        border-left: none;
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        text-decoration: none;
+        position: relative;
+        bottom: 2px;
+        padding: 5px;
+        padding: 4px 4px 5px 4px\9; /* Hack ie8 */
+        content: '\f073';
+        color: @color-bleu-3;
+        font-size: 1.4em;
+    }
+    &:hover {
+        background: none;
+        &:before {
+            .gradient(top, @color-vert-11, darken(@color-vert-11,10%));
+            border:1px solid @input-border-color;
+            border-left: none;
+            color: @color-noir;
+            cursor: pointer;
+        }
+    }
+}
+
+table {
+    .calendrier {
+        &:before {
+            bottom: 0px;
+            padding: 2px 4px 3px 4px;
+        }
+    }
+}

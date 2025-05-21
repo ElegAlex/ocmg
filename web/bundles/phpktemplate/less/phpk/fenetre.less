@@ -1,0 +1,70 @@
+.popbg {
+    background-color: #000000;
+    opacity: 0.5;
+    filter : alpha(opacity=50);
+}
+
+.fenetre {
+
+    border-bottom: 3px @fenetre-border-color solid;
+    background: @fenetre-background-color;
+    width: 600px;
+    .section {
+        .ligne {
+            .libelle {
+                .text-left;
+                width: 45%;
+            }
+            .valeur {
+                width: 50%;
+            }
+        }
+    }
+
+    .ligne {
+        .zone_champ_saisie {
+            width: 50%;
+            input[type=text] {
+                width: 50%;
+            }
+        }
+        .erreur_champ {
+            width: 100%;
+            input[type=text] {
+                width: 100%;
+            }
+        }
+    }
+
+    .fenetre-header {
+        color: @fenetre-header-font-color;
+        background-color: @fenetre-header-background-color;
+    }
+
+    .fenetre-content {
+        margin: 0 20px;
+        padding: 10px;
+
+        label {
+            width: 150px;
+        }
+    }
+
+}
+
+.commentaire {
+    .fenetre-header {
+        color:  @fenetre-header-background-color;
+        background-color: @fenetre-header-font-color;
+    }
+}
+
+.bulle {
+    border: 1px #03819E solid;
+    background-color: #FFFEDB;
+    .fenetre-header {
+        background-color: #FFFEDB;
+        color: black;
+        border-bottom: 1px solid white;
+    }
+}

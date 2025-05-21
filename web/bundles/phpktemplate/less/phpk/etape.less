@@ -1,0 +1,52 @@
+.etapes {
+
+    a {
+        &[aria-selected="true"]{
+            span>span {
+                font-weight: bold;
+            }
+        }
+        &[aria-selected="false"]:hover {
+            color: #000;
+            &span > span {
+                color: #000;
+            }
+        }
+    }
+
+    li {
+        a {
+            color: #444;
+        }
+        &:first-child a {
+            border-left: 2px #fff solid;
+        }
+        .derniere-etape{
+            border-right: 2px #fff solid;
+        }
+    }
+
+    & +.onglets {
+        padding-top:25px;
+    }
+
+    & +.section {
+        padding-top: 25px;
+        .onglets{
+            background-color: @onglet-element-selected-background-color;
+            border-bottom: 1px solid darken(@onglet-element-selected-background-color, 5%);
+            li {
+                margin-left: 0px;
+                list-style-type: none;
+                a{
+                    border-bottom: none;
+                    border-top-color: @onglet-element-selected-background-color;
+                    &[aria-selected="true"]{
+                        background-color: darken(@onglet-element-selected-background-color, 5%);
+                        border-top: 2px solid @onglet-element-selected-border-top-color;
+                    }
+                }
+            }
+        }
+    }
+}

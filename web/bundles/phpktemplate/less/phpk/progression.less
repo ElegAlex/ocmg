@@ -1,0 +1,28 @@
+.progression {
+    background-color: @progression-background-color;
+    .errormessage {
+        color: @progression-error-message-color;
+    }
+    .globalerror {
+        background-color: @progression-global-error-background-color;
+        color: @progression-global-error-color;
+    }
+}
+
+.progress, progress {
+    border: 3px solid @progress-border-color;
+    background-color: @progress-background-color;
+    &::-webkit-progress-bar {
+        background-color: @progress-background-color;
+    }
+    &::-webkit-progress-value {
+        background-color: @progress-value-color;
+    }
+    &::-moz-progress-bar {
+        background-color: @progress-value-color;
+    }
+}
+
+.pbar {
+    background-color: @pbar-background-color;
+}

@@ -1,0 +1,78 @@
+.zone-message, .zone-alerte {
+    padding: 7px 0 5px 30px !important;
+}
+
+.zone-alerte {
+    background-color: @zone-alerte-background-color;
+    border-top: 1px @zone-alerte-border-color solid;
+    color: @zone-alerte-color;
+}
+
+.zone-message {
+    background-color: @zone-message-background-color;
+    border-top: 1px @zone-message-border-color solid;
+    color: @zone-message-color;
+}
+
+.zone-info {
+    padding: 6px 0 6px 15px !important;
+    background-color:@zone-info-background-color;
+}
+
+.zone-attente {
+    background-color:@zone-attente-background-color;
+}
+
+/*
+ *   Notification
+ */
+.phpk_notification {
+    position: absolute;
+    top: 0;
+    left: 35%;
+    width:30%;
+    height: 35px;
+    border: 1px solid @notification-border-color;
+    border-top: 0;
+    font-size: 1.2em;
+    padding: 5px;
+    text-align: center;
+    z-index: 101;
+    color: #097182;
+}
+.phpk_notification_success {
+    background-color: @notification-success-background-color;
+}
+
+.phpk_notification_error {
+    background-color: @notification-error-background-color;
+    border: 1px solid @notification-error-border-color;
+    border-top: 0;
+    color: @notification-error-color;
+}
+
+.phpk-flash-alerte {
+    margin-bottom: 0px;
+    border-top: none;
+    border-bottom: 1px @notification-alerte-border-color solid;
+    font-weight: bold;
+    color: @notification-alerte-color !important;
+}
+
+.phpk-flash-message {
+    margin-bottom: 0px;
+    border-top: none;
+    border-bottom: 1px @notification-message-border-color solid;
+    font-weight: bold;
+}
+
+.phpk-flash-info {
+    border-bottom: 1px @notification-info-border-color solid;
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+
+.phpk-flash-fade {
+    position: absolute;
+    width: 100%;
+}

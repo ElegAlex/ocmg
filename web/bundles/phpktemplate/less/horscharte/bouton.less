@@ -1,0 +1,216 @@
+.bouton {
+
+    &>span {
+        background: none !important;
+        &.avec_img_drt {
+            &>span>span>span:before {
+                left: 110px;
+            }
+        }
+        &>span {
+            background: none !important;
+            &>span {
+                background: none !important;
+                &>span {
+                    background: none !important;
+                    &:before {
+                        display: inline-block;
+                        font: normal normal normal 14px/1 FontAwesome;
+                        font-size: 1.2em;
+                        text-rendering: auto;
+                        -webkit-font-smoothing: antialiased;
+                        position: relative;
+                        right: 20px;
+                        top: 2px;
+                        font-size: 1.4em;
+                    }
+                    i {
+                        position: relative;
+                        right: 20px;
+                        top: 2px;
+                        font-size: 1.4em;
+                    }
+                }
+            }
+        }
+    }
+
+    &.intermediaire {
+        .btn_action {
+            .gradient(top, @color-vert-9, darken(@color-vert-9,10%));
+            border:1px solid darken(@color-vert-9,30%);
+
+            &:hover {
+                .gradient(top, @color-vert-11, darken(@color-vert-11,10%));
+                border:1px solid darken(@color-vert-11,15%);
+                &>span>span{
+                    color: @color-noir;
+                }
+            }
+            &>span>span{
+                color: @color-bleu-8;
+            }
+        }
+    }
+
+    .btn_inactif{
+        .gradient(top, @color-gris-8, darken(@color-gris-8,7.5%));
+        border:1px solid darken(@color-gris-8,10%);
+    }
+
+    .btn_action {
+        .gradient(top, @color-bleu-4, darken(@color-bleu-4,7.5%));
+        border:1px solid darken(@color-bleu-4,10%);
+        &:hover {
+            .gradient(top, @color-vert-11, darken(@color-vert-11,12%));
+            border:1px solid darken(@color-vert-11,20%);
+        }
+    }
+
+    .btn_defaut {
+        background: none;
+        .gradient(top, @color-vert-11, darken(@color-vert-11,5%));
+        border:1px solid darken(@color-vert-11,10%);
+        &:hover {
+            background: none;
+            .gradient(top, lighten(@color-vert-11,10%), darken( lighten(@color-vert-11,10%) ,10%));
+            border:1px solid darken( lighten(@color-vert-11,10%) ,20%);
+        }
+    }
+
+    .btn_abandonner {
+        &:before {
+            content: "\f05e";
+        }
+    }
+
+    .btn_archiver {
+        &:before {
+            content: "\f187";
+        }
+    }
+
+    .btn_calculer {
+        &:before {
+            content: "\f1ec";
+        }
+    }
+
+    .btn_creer {
+        &:before {
+            content: "\f067";
+        }
+    }
+
+    .btn_etapeprecedente {
+        &:before {
+            content: "\f053";
+        }
+    }
+
+    .btn_etapesuivante {
+        &:before {
+            content: "\f054";
+        }
+    }
+
+    .btn_exporter {
+        &:before {
+            content: "\f019";
+        }
+    }
+
+    .btn_effacer {
+        &:before {
+            content: "\f12d";
+        }
+    }
+
+    .btn_fermer {
+        &:before {
+            content: "\f057";
+        }
+    }
+
+    .btn_forcer {
+        &:before {
+            content: "\f178";
+        }
+    }
+
+    .btn_imprimer {
+        &:before {
+            content: "\f02f";
+        }
+    }
+
+    .btn_modifier {
+        &:before {
+            content: "\f040";
+        }
+    }
+
+    .btn_normaliser {
+        &:before {
+            content: "\f096";
+        }
+    }
+
+    .btn_parcourir {
+        &:before {
+            content: "\f114";
+        }
+        &:hover {
+            &:before {
+                content: "\f115";
+            }
+        }
+    }
+
+    .btn_rafraichir {
+        &:before {
+            content: "\f021";
+            -webkit-transition: -webkit-transform .4s ease-in-out;
+            -ms-transition: -ms-transform .4s ease-in-out;
+            transition: transform .4s ease-in-out;
+        }
+        &:hover {
+            &:before{
+                transform:rotate(180deg);
+                -ms-transform:rotate(180deg);
+                -webkit-transform:rotate(180deg);
+            }
+        }
+    }
+
+    .btn_rechercher {
+        &:before {
+            content: "\f002";
+        }
+    }
+
+    .btn_retablir {
+        &:before {
+            content: "\f0e2";
+        }
+    }
+
+    .btn_supprimer {
+        &:before {
+            content: "\f00d";
+        }
+    }
+
+    .btn_transmettre {
+        &:before {
+            content: "\f045";
+        }
+    }
+
+    .btn_valider {
+        &:before {
+            content: "\f00c";
+        }
+    }
+
+}

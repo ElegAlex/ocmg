@@ -1,0 +1,251 @@
+/*
+ *  Formulaires
+ */
+
+.section {
+
+    input[type="number"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="text"],
+    input[type="password"],
+    input[type="search"],
+    input[type="url"],
+    input[type="file"]{
+        height: @input-height;
+        border: @input-border-size solid @input-border-color;
+        background: @input-background-color;
+        line-height: @input-height;
+        padding-left: 2px;
+    }
+    
+    input[type=checkbox], input[type=radio] {
+        position: relative;
+        left: -5px;
+        margin-right: -5px !important; 
+    }
+
+    input[disabled="disabled"],
+    textarea[disabled="disabled"] {
+        opacity: 0.5;
+        filter:alpha(opacity = 50);
+    }
+    
+    input[type="checkbox"][disabled="disabled"],
+    input[type="radio"][disabled="disabled"] {
+        border: 0px;
+        background-color: @color-gris-3;
+    }
+    
+    textarea{
+        width: 350px;
+        height: 125px;
+    }
+
+    td {
+
+        ul {
+            margin-top: 1px;
+            margin-bottom: 1px;
+        }
+
+    }
+
+    h2 {
+        .text-left;
+    }
+
+    h4 {
+        padding: 4px 0;
+        margin-bottom: 10px;
+        background-color: white;
+        text-align: center;
+        border: 1px solid @input-border-color;
+    }
+
+    .ligne {
+
+        .libelle {
+            width: 50%;
+        }
+
+        .valeur {
+            width: auto;
+        }
+
+        .zone_champ_saisie {
+            &>div, &>span {
+                display: inline-block;
+                &>div {
+                    display: inline-block;
+                    &[class^=cke_]{
+                        display: initial !important;
+                    }
+                }
+            }
+        }
+
+        .zone_combo {
+
+            @color1: #e8e8e8;
+            @color2: #f4f4f4;
+            @color3: #f0f0f0;
+
+            select[data-url][data-query] {
+                &~.chzn-container-multi {
+                    width: 400px !important;
+                    .chzn-drop.chzn-drop-down {
+                        width: 400px !important;
+                    }
+                    ul {
+                        &> li.search-field {
+                            &> input[type="text"]{
+                                width: 100px !important;
+                                border-bottom: 1px solid #CCC !important;
+                            }
+                        }                            
+                    }
+                }
+            }
+            
+            .chzn-container-multi {
+                .chzn-choices {
+                    background-color: @color-blanc;
+                    background-image: -moz-linear-gradient(@color-gris-11 1%, @color-blanc 15%);
+                    background-image: -o-linear-gradient(@color-gris-11 1%, @color-blanc 15%);
+                    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(1%, @color-gris-11), color-stop(15%, @color-blanc));
+                    background-image: -webkit-linear-gradient(@color-gris-11 1%, @color-blanc 15%);
+                    background-image: linear-gradient(@color-gris-11 1%, @color-blanc 15%);
+                    border: 1px solid @color-gris-12;
+                    cursor: text;
+                    height: auto;
+                    margin: 0;
+                    overflow: hidden;
+                    padding: 0 5px;
+                    position: relative;
+                    width: 100%;
+                    li {
+                        float: left;
+                        list-style: none;
+                    }
+                    li.search-field {
+                        margin: 0;
+                        padding: 0;
+                        white-space: nowrap;
+                        input[type="text"] {
+                            background: transparent !important;
+                            border-radius: 0;
+                            border: 0 !important;
+                            box-shadow: none;
+                            color: #999999;
+                            font-family: sans-serif;
+                            font-size: 100%;
+                            height: 25px;
+                            line-height: normal;
+                            margin: 1px 0;
+                            outline: 0;
+                            padding: 0;
+                        }
+                    }
+                    li.search-choice {
+                        background-clip: padding-box;
+                        background-color: @color-gris-11;
+                        background-image: -moz-linear-gradient(#f4f4f4 20%, #f0f0f0 50%, @color1 52%, @color-gris-11 100%);
+                        background-image: -o-linear-gradient(#f4f4f4 20%, #f0f0f0 50%, @color1 52%, @color-gris-11 100%);
+                        background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, @color1), color-stop(100%, @color-gris-11));
+                        background-image: -webkit-linear-gradient(#f4f4f4 20%, #f0f0f0 50%, @color1 52%, @color-gris-11 100%);
+                        background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, @color1 52%, @color-gris-11 100%);
+                        background-repeat: repeat-x;
+                        background-size: 100% 19px;
+                        border-radius: 3px;
+                        border: 1px solid @color-gris-12;
+                        box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+                        color: #333333;
+                        cursor: default;
+                        line-height: 13px;
+                        margin: 3px 5px 3px 0;
+                        max-width: 100%;
+                        padding: 3px 20px 3px 5px;
+                        position: relative;
+                        span {
+                            word-wrap: break-word;
+                        }
+                        .search-choice-close {
+                            &:after {
+                                content: "x";
+                                /* float: left; */
+                                /* margin-right: -49px; */
+                                position: relative;
+                                left: 10px;
+                                font-size: 1.1em;
+                                color: #000;
+                            }
+                        }
+                    }
+                    li.search-choice-disabled {
+                        background-color: #e4e4e4;
+                        background-image: -moz-linear-gradient(#f4f4f4 20%, #f0f0f0 50%, @color1 52%, @color-gris-11 100%);
+                        background-image: -o-linear-gradient(#f4f4f4 20%, #f0f0f0 50%, @color1 52%, @color-gris-11 100%);
+                        background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, @color1), color-stop(100%, @color-gris-11));
+                        background-image: -webkit-linear-gradient(#f4f4f4 20%, #f0f0f0 50%, @color1 52%, @color-gris-11 100%);
+                        background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, @color1 52%, @color-gris-11 100%);
+                        border: 1px solid @color-gris-4;
+                        color: #666666;
+                        padding-right: 5px;
+                    }
+                    li.search-choice-focus {
+                        background: #d4d4d4;
+                        .search-choice-close {
+                            background-position: -42px -10px;
+                        }
+                    }
+                }
+                .chzn-results {
+                    margin: 0;
+                    padding: 0;
+                }
+                .chzn-drop {
+                    .result-selected {
+                        color: @color-gris-4;
+                        cursor: default;
+                        display: list-item;
+                    }
+                }
+            }
+        }
+    }
+
+    .ligne50 {
+
+        .libelle {
+            .text-left;
+        }
+
+        .valeur {
+            width: 45%;
+        }
+
+    }
+}
+
+div.phpk_form_inline {
+    /* Gestion de l'attribut "inline" des formulaires (twig) */
+    display: table;
+    width: 100%;
+
+    div.ligne {
+        display: table-cell;
+    }
+
+    span.barre-boutons {
+        top: 0px !important;
+    }
+
+    /**
+     * Gestion du séparateur pour les formulaires inline
+     * Provoque un retour à la ligne
+     */
+    hr.separateur {
+        display: table-row;
+    }
+}

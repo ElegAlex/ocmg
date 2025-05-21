@@ -1,0 +1,102 @@
+.consultation {
+
+    /*
+     *  Consultation
+     */
+
+    span {
+
+        &.libelle {
+            vertical-align: top;
+        }
+
+        &.valeur {
+            &>a {
+                &.lien {
+                    margin: 0 !important;
+                }
+            }
+            &.phpk_consultation_couleur {
+                width:20px !important;
+                margin-left: 5px !important;
+                border: @input-border-size solid @input-border-color;
+                cursor: default;
+            }
+        }
+
+    }
+
+    h4 {
+        margin: 10px 0;
+    }
+
+    hr {
+        clear: both;
+    }
+
+}
+
+ul.no-list {
+
+    /*
+     * Listes
+     */
+
+    li {
+        list-style-type: none !important;
+        margin-left: 0px !important;
+    }
+
+}
+
+
+fieldset.code {
+
+    /*
+     *   Fieldset - Présentation de code
+     */
+
+    padding: 0.5em;
+    background-color: @fieldset-code-background-color;
+    border: @fieldset-code-border-size dashed @fieldset-code-border-color;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 5px;
+    margin-top: 15px;
+
+    legend {
+        display: block;
+        border: @fieldset-code-border-size solid @fieldset-code-border-color;
+        background-color: @fieldset-code-legend-color;
+        text-align: center;
+        margin-top: -10px;
+        margin-left: 10px;
+        padding:2px;
+        line-height: 1.2em;
+    }
+
+}
+
+/*
+ *   Contenu de page
+ */
+a.modale_aide { cursor: pointer; }
+.infobulle {  cursor: help; }
+
+/* formulaire centré */
+.form_center {
+    .w150px{
+        width: 45% !important;
+    }
+}
+
+.section {
+    .ligne {
+        .libelle {
+            width: 50%;
+        }
+        .valeur {
+            width: auto;
+        }
+    }
+}

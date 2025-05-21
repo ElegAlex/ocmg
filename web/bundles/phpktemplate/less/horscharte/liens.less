@@ -1,0 +1,94 @@
+a {
+
+    &.lien {
+
+        padding: 3px 15px 4px 17px;
+        background: none !important;
+
+        &:before{
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            margin-right: 10px;
+            text-decoration: none;
+            position: relative;
+            top: 2px;
+            color: black;
+            font-size: 1rem;
+            font-size: 1.3em\9; /* IE8 et versions inférieures */
+        }
+
+        &[aria-disabled=true]{
+            &:before{
+                color:@color-gris-6 !important;
+            }
+            pointer-events: none;
+            cursor: default;
+            color:@color-gris-6;
+        }
+
+        &:hover {
+            cursor: pointer;
+            &:before {
+                position: relative;
+                bottom: 1px;
+            }
+        }
+
+        &.ancre-bas {
+            &:before {
+                content: "\f063";
+            }
+        }
+        &.ancre-haut {
+            &:before {
+                content: "\f062";
+            }
+        }
+        &.doc-excel {
+            &:before {
+                content: "\f1c3";
+                color: @color-vert-1;
+            }
+        }
+        &.doc-pdf {
+            &:before {
+                content: "\f1c1";
+                color: @color-rouge-1;
+            }
+        }
+        &.doc-word {
+            &:before {
+                content: "\f1c2";
+                color: @color-bleu-1;
+            }
+        }
+        &.doc-tout-format {
+            &:before {
+                content: "\f016";
+            }
+        }
+        &.doc-archive {
+            &:before {
+                content: "\f1c6";
+            }
+        }
+        &.piece-joint {
+            &:before {
+                content: "\f0c6";
+            }
+        }
+
+        &-{
+            &rouge { &:before { color: @color-rouge-1; } }
+            &vert { &:before { color: @color-vert-1; } }
+            &orange { &:before { color: @color-orange; } }
+            &bleu { &:before { color: @color-bleu-1; } }
+            &blanc { &:before { color: @color-blanc; } }
+            &noir { &:before { color: @color-noir; } }
+            &gris { &:before { color: @color-gris-1; } }
+        }
+
+    }
+}

@@ -1,0 +1,65 @@
+
+.erreur_champ input[type="text"] {
+    border-color: @input-error-color;
+    background-color: @input-error-background-color;
+}
+
+.message_erreur {
+    color: @input-error-color;
+}
+
+/*
+ *  colorpicker
+ */
+.colorpicker-input {
+    width:@input-colorpicker-width;
+    height:@input-colorpicker-height;
+    border:@input-border-size solid @input-border-color;
+    cursor:pointer;
+    display: inline-block;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.colorpicker-box {
+    border-left: @input-colorpicker-border-size solid @input-colorpicker-border-color;
+    border-top: @input-colorpicker-border-size solid @input-colorpicker-border-color;
+    position: absolute;
+    padding: 0px;
+    z-index: 9999;
+
+    ul {
+        list-style: none;
+        padding: 0px !important;
+        margin: 0px !important;
+        float: left;
+
+        li {
+            display: block;
+            width: @input-colorpicker-box-size;
+            height: @input-colorpicker-box-size;
+            border-right: @input-colorpicker-border-size solid @input-colorpicker-border-color;
+            border-bottom: @input-colorpicker-border-size solid @input-colorpicker-border-color;
+            margin: 0px;
+            float: left;
+            cursor: pointer;
+        }
+    }
+}
+
+.colorpicker-link {
+    margin-left: 5px;
+    margin-right: 5px;
+    vertical-align: middle;
+    padding-left: 0;
+    background-repeat: no-repeat;
+    background-image:  url('../../images/picto/picto_color_inactif.png');
+    width: 24px;
+    height: 21px;
+    display: inline-block;
+    &:hover{
+        background-repeat: no-repeat;
+        background-image:  url('../../images/picto/picto_color_survol.png');
+        cursor:pointer;
+    }
+}

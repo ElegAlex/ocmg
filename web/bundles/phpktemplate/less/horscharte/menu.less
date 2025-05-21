@@ -1,0 +1,28 @@
+.plier,
+.deplier {
+    &:before {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        text-decoration: none;
+        position: relative;
+        top: 1px;
+    }
+}
+
+.plier{
+    background: none !important;
+    &:before {
+        content: '\f0da';
+        margin-left: -10px;
+    }
+}
+
+.deplier {
+    background: none !important;
+    &:before {
+        content: '\f0d7';
+        margin-left: -13px;
+    }
+}

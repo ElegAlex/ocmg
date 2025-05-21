@@ -1,0 +1,91 @@
+.tab-box {
+
+    .tab-body {
+
+        table {
+
+            .tri-asc a,
+            .tri-desc a,
+            .tri a {
+                &:before {
+                    display: inline-block;
+                    font: normal normal normal 14px/1 FontAwesome;
+                    text-rendering: auto;
+                    -webkit-font-smoothing: antialiased;
+                    text-decoration: none;
+                    position: relative;
+                    bottom: 1px;
+                    margin-right: 5px;
+                }
+            }
+
+            .tri-asc a {
+                background: none;
+                &:before {
+                    content: "\f0d8";
+                }
+            }
+
+            .tri-desc a {
+                background: none;
+                &:before {
+                    content: "\f0d7";
+                }
+            }
+
+            .tri a {
+                background: none;
+                &:before {
+                    content: "\f0dc";
+                }
+            }
+
+            tr {
+                td {
+
+                    &.phpk_decorator_loupe {
+                        a {
+                            background: none !important;
+                            &:before {
+                                display: inline-block;
+                                font: normal normal normal 14px/1 FontAwesome;
+                                text-rendering: auto;
+                                -webkit-font-smoothing: antialiased;
+                                text-decoration: none;
+                                position: relative;
+                                top: 7px;
+                                content: "\f002";
+                            }
+                            img {
+                                display: none;
+                            }
+                            &:hover {
+                                background: none !important;
+                            }
+                        }
+
+                    }
+                    &.phpk_decorator_pictogramme {
+                        padding: 0 0 0 15px;
+                        .icone-pictogramme {
+                            padding: 0;
+                        }
+                        i.fa {
+                            &:before {
+                                font-size: 1.2em;
+                            }
+                        }
+                    }
+
+                    a.lien {
+                        padding: 3px 0px 4px 2px !important;
+                    }
+
+                }
+            }
+
+        }
+
+    }
+
+}

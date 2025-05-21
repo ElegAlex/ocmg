@@ -1,0 +1,149 @@
+.phpk-hc {
+
+    &.liens-entete {
+        &.outils {
+            li {
+
+                a {
+                    &.btn{
+                        color: @color-bleu-4;
+                        text-align: center;
+                        .gradient(top, @color-vert-9, @color-vert-10);
+
+                        i {
+                            position: relative;
+                            top: 4px;
+                            font-size: 1.2em;
+                        }
+
+                        &:hover {
+                            .gradient(top, @color-vert-11, @color-vert-12);
+                            color: @color-noir;
+                            cursor:pointer;
+
+                            i {
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+
+                .cnamts-zoomtexte {
+                    span  {
+
+                        color: @color-bleu-4;
+                        text-align: center;
+                        .gradient(top, @color-vert-9, @color-vert-10);
+
+                        background-image: none;
+                        &:hover {
+                            .gradient(top, @color-vert-11, @color-vert-12);
+                            color: @color-noir;
+                            cursor:pointer;
+
+                            i {
+                                font-weight: 600;
+                            }
+                        }
+
+                        i {
+                            position: relative;
+                            top: 4px;
+                            font-size: 1.2em;
+                        }
+
+                        &.zoom-reduire {
+                            &:after {
+                                display: inline-block;
+                                font: normal normal normal 14px/1 FontAwesome;
+                                text-rendering: auto;
+                                -webkit-font-smoothing: antialiased;
+                                content: "\f068";
+                                font-size: 0.7em;
+                                margin-left: -2px;
+                                position: relative;
+                                top: 3px;
+                            }
+                        }
+
+                        &.zoom-agrandir {
+                            &:after {
+                                display: inline-block;
+                                font: normal normal normal 14px/1 FontAwesome;
+                                text-rendering: auto;
+                                -webkit-font-smoothing: antialiased;
+                                content: "\f067";
+                                font-size: 0.7em;
+                                margin-left: -2px;
+                                position: relative;
+                                top: 3px;
+                            }
+                        }
+
+
+                    }
+                }
+
+            }
+
+        }
+    }
+
+}
+
+#phpk-hc-user-info {
+    /*display: none;*/
+    visibility: hidden;
+    background-color: @color-vert-9 !important;
+    padding: 7px 5px;
+    z-index: 20;
+    .box-shadow(1px,3px,5px,0.3);
+
+    hr {
+        border: 0;
+        height: 1px;
+        background: darken(@color-vert-9,10%);
+    }
+
+    dl {
+
+        dt {
+            margin-top:10px;
+            margin-bottom: 5px;
+        }
+
+        dd {
+
+            ul {
+                list-style: initial;
+                list-style-type: square;
+                li {
+                    margin-left: 20px;
+
+                    ul {
+                        margin: 5px 0;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+#lien-quitter {
+    padding: 5px 2px 0 14px;
+    background: none;
+    &:after {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        text-decoration: none;
+        font-size: 1.5em;
+        content: '\f011';
+        /*color: @color-rouge-1;*/
+        margin-left: 5px;
+        position: relative;
+        top: 2px;
+    }
+}

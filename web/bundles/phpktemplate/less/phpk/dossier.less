@@ -1,0 +1,93 @@
+
+.dossiers {
+    background: @dossier-background-color;
+
+    li {
+        a {
+            border-bottom: 2px solid @dossier-lien-border-color;
+            border-top: 5px solid @dossier-lien-border-color;
+            background: @dossier-lien-background-color;
+            color: @dossier-lien-color;
+            &[aria-selected="true"] {
+                border-top: 2px solid @dossier-lien-selected-border-top-color;
+                border-bottom:2px solid @dossier-lien-selected-border-bottom-color;
+                background: @dossier-lien-selected-background-color;
+                color: @dossier-lien-selected-color;
+                &:hover {
+                    background: @dossier-lien-selected-background-color;
+                    color: @dossier-lien-selected-color;
+                }
+            }
+            &[aria-disabled="true"] {
+                background: @dossier-lien-disabled-background-color;
+                &:hover {
+                    background: @dossier-lien-disabled-hover-background-color;
+                    color: @dossier-lien-disabled-hover-color;
+                }
+            }
+            &:hover {
+                color: @dossier-lien-hover-color;
+                background: @dossier-lien-hover-background-color;
+            }
+        }
+    }
+
+}
+
+.portail-dossiers {
+    background-color: @dossier-background-color;
+}
+
+.dossier-prec,
+.dossier-suiv {
+    background-color: @dossier-suivant-background-color;
+    color: @dossier-suivant-color;
+    &:hover {
+        background-color: @dossier-suivant-background-color;
+    }
+    &[aria-disabled=true] {
+        background-color: @dossier-suivant-disabled-background-color;
+        color: @dossier-suivant-disabled-color;
+        sub{
+            color: @dossier-suivant-disabled-color;
+        }
+    }
+
+}
+
+.dossiers-navig {
+    sub{
+        color: @dossier-sub-color;
+    }
+    .dossiers {
+        li {
+            a {
+                border-bottom: 0px solid @dossier-lien-border-color;
+                border-top: 0px solid @dossier-lien-border-color;
+                background: @dossier-lien-background-color;
+                color: @dossier-lien-color;
+                &[aria-selected=true] {
+                    border-top: 2px solid @dossier-lien-selected-border-top-color;
+                    border-bottom: 2px solid @dossier-lien-selected-border-bottom-color;
+                    background: @dossier-lien-selected-background-color;
+                    color: @dossier-lien-selected-color;
+                    &:hover {
+                        background: @dossier-lien-selected-background-color;
+                        color: @dossier-lien-selected-color;
+                    }
+                }
+                &[aria-disabled=true] {
+                    background: @dossier-lien-disabled-background-color;
+                    &:hover {
+                        background: @dossier-lien-disabled-hover-background-color;
+                        color: @dossier-lien-disabled-hover-color;
+                    }
+                }
+                &:hover {
+                    color: @dossier-lien-hover-color;
+                    background: @dossier-lien-hover-background-color;
+                }
+            }
+        }
+    }
+}

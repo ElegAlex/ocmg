@@ -1,0 +1,206 @@
+/* ********* menu horizontal ******** */
+.nav-horizontal  {
+    background: @navigation-horizontale-background-color;
+
+    .niveau1 {
+        background-color: #04819E;
+
+        color: @navigation-horizontale-font-color;
+        /* background-color: @navigation-horizontale-background-color; */
+
+        .plier{
+            &:hover {
+                background-color: @navigation-horizontale-hover-background-color !important;
+            }
+        }
+
+        .deplier {
+            color: @navigation-horizontale-selected-font-color;
+            background-color: @navigation-horizontale-selected-background-color !important;
+            border-top: 1px @navigation-horizontale-selected-background-color solid;
+            &:hover {
+                border-top: 1px @navigation-horizontale-selected-background-color solid;
+                background-color: @navigation-horizontale-selected-background-color;
+            }
+        }
+
+        a {
+            color: @navigation-horizontale-font-color;;
+            background-color: #04819E;
+            border-top: 1px #04819E solid;
+            border-left: 1px solid #fff;
+
+            &:hover {
+                color:@navigation-horizontale-selected-font-color;
+                background-color: @navigation-horizontale-hover-background-color;
+            }
+        }
+
+    }
+
+    .niveau2 {
+        color: @navigation-horizontale-selected-font-color;
+        background-color: @navigation-horizontale-selected-background-color;
+        border-top: 1px #FFF solid;
+
+        a {
+            color: @navigation-horizontale-selected-font-color;
+            background-color: @navigation-horizontale-selected-background-color;
+            border-top: 0 #FFF none;
+            &:hover {
+                background-color: @navigation-horizontale-hover-background-color;
+                color:@navigation-horizontale-selected-font-color;
+            }
+        }
+
+    }
+}
+
+/* ********* menu vertical ******** */
+.nav-vertical     {
+    background: @navigation-verticale-background-color;
+
+    .niveau1 {
+        color: @navigation-verticale-font-color;
+        background-color: @navigation-verticale-background-color  !important;
+
+        .plier:hover {
+            background-color: @navigation-verticale-hover-background-color !important;
+        }
+
+        .deplier {
+            color: @navigation-verticale-selected-font-color;
+            background-color: @navigation-verticale-selected-background-color !important;
+            &:hover {
+                background-color: @navigation-verticale-hover-background-color  !important;
+            }
+        }
+
+        a {
+            color: @navigation-verticale-font-color;
+            background-color: @navigation-verticale-background-color  !important;
+            border-top: 1px solid @navigation-verticale-border-color;
+            &:hover {
+                background-color: @navigation-verticale-hover-background-color  !important;
+                color:@navigation-verticale-selected-font-color;
+            }
+        }
+
+    }
+
+    .niveau2 {
+        color: @navigation-verticale-selected-font-color;
+        background-color: @navigation-verticale-selected-background-color;
+
+        .premier {
+            border-top: 1px solid @navigation-verticale-border-color;
+        }
+
+        .deplier {
+            background-color: @navigation-verticale-selected-background-color  !important;
+            &:hover {
+                background-color: @navigation-verticale-hover-background-color  !important;
+            }
+        }
+
+        a {
+            color: @navigation-verticale-selected-font-color;
+            background-color: @navigation-verticale-selected-background-color  !important;
+            border-top: 1px solid @navigation-verticale-border-color;
+        }
+
+    }
+
+    .niveau3 {
+
+        .premier {
+            border-top: 1px solid @navigation-verticale-border-color;
+        }
+
+    }
+
+}
+
+/* ********* menu mixte ******** */
+.nav-mixte  {
+    background-color: @navigation-verticale-background-color;
+
+    .niveau1 {
+        color: @navigation-verticale-font-color;
+
+        &>li {
+
+            &>.plier {
+                &:hover {
+                    background-color: @navigation-verticale-hover-background-color  !important;
+                }
+            }
+
+            &>.deplier {
+                color: @navigation-verticale-selected-font-color;
+                background-color: @navigation-verticale-selected-background-color  !important;
+                border-left: 1px solid @navigation-verticale-background-color;
+            }
+
+            &> a {
+                color: @navigation-verticale-font-color;
+                background-color: @navigation-verticale-background-color  !important;
+                border-top: 1px @navigation-verticale-background-color solid;
+                border-left: 1px solid @navigation-verticale-border-color;
+            }
+        }
+
+        a {
+            &:hover {
+                color:@navigation-verticale-selected-font-color;
+                background-color: @navigation-verticale-hover-background-color  !important;
+            }
+        }
+
+    }
+
+    .niveau2 {
+        .plier{
+            &:hover {
+                background-color: @navigation-verticale-hover-background-color  !important;
+            }
+        }
+
+        a {
+
+            color: @navigation-verticale-selected-font-color;
+            background-color: @navigation-verticale-selected-background-color  !important;
+            border-top: 1px solid @navigation-verticale-border-color;
+        }
+
+    }
+
+    .niveau2,
+    .niveau3 {
+        color: @navigation-verticale-selected-font-color;
+        background-color: @navigation-verticale-selected-background-color  !important;
+        border: 1px @navigation-verticale-background-color solid;
+    }
+}
+
+/* éléments communs */
+.nav-mixte li > a.courant, .nav-horizontal li > a.courant, .nav-vertical li > a.courant  {
+    color: @navigation-verticale-selected-font-color;
+    background-color: #FFF  !important;
+}
+
+/* mev pour mis en valeur : correspond à un menu contenant un menu courant */
+.nav-horizontal li.mev > a.plier, .nav-vertical li.mev > a.plier {
+    color: @navigation-verticale-selected-font-color;
+    background-color: @navigation-verticale-hover-background-color  !important;
+}
+
+.nav-mixte li.mev > a.plier {
+    color: @navigation-verticale-selected-font-color;
+    background-color: @navigation-verticale-hover-background-color  !important;
+}
+
+.nav-mixte .niveau1 > li.mev > a.plier , .nav-horizontal .niveau1 > li.mev > a.plier {
+    color: @navigation-verticale-selected-font-color;
+    background-color: @navigation-verticale-hover-background-color  !important;
+}

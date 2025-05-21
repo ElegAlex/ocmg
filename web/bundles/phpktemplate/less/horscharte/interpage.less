@@ -1,0 +1,72 @@
+.navigation-interpage{
+    li {
+        a{
+            &.precedent,
+            &.precedentinactif,
+            &.suivant,
+            &.suivantinactif {
+                display: inline-block;
+                font: normal normal normal 14px/1 FontAwesome;
+                text-rendering: auto;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            &.precedent {
+                background: none;
+                color: @color-blanc;
+
+                .gradient(top, @color-bleu-4, darken(@color-bleu-4,7.5%));
+                border:1px solid darken(@color-bleu-4,10%);
+                &:hover {
+                    .gradient(top, @color-vert-11, darken(@color-vert-11,12%));
+                    border:1px solid darken(@color-vert-11,20%);
+                }
+
+                &:before {
+                    position: relative;
+                    right: 1px;
+                    content: '\f0d9';
+                }
+            }
+            &.precedentinactif {
+                background: none;
+                background-color: @color-gris-8;
+                color: @color-blanc;
+                border: 1px solid darken(@color-gris-8,7.5%);
+                &:before {
+                    position: relative;
+                    right: 1px;
+                    content: '\f0d9';
+                }
+            }
+            &.suivant {
+                background: none;
+                color: @color-blanc;
+
+                .gradient(top, @color-bleu-4, darken(@color-bleu-4,7.5%));
+                border:1px solid darken(@color-bleu-4,10%);
+                &:hover {
+                    .gradient(top, @color-vert-11, darken(@color-vert-11,12%));
+                    border:1px solid darken(@color-vert-11,20%);
+                }
+
+                &:before {
+                    position: relative;
+                    left: 1px;
+                    content: '\f0da';
+                }
+            }
+            &.suivantinactif {
+                background: none;
+                background-color: @color-gris-8;
+                color: @color-blanc;
+                border: 1px solid darken(@color-gris-8,7.5%);
+                &:before {
+                    position: relative;
+                    left: 1px;
+                    content: '\f0da';
+                }
+            }
+        }
+    }
+}

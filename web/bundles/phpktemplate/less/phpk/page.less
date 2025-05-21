@@ -1,0 +1,113 @@
+
+body {
+    font-size: @body-font-size; /* Resets 1em to 10px */
+    background: @body-background-color;
+    color: @body-font-color;
+}
+
+a { color:@a-color }
+a:hover { color:@a-hover-color;}
+
+/* Heading */
+h1 { font-size:@h1-font-size; }
+h2 { font-size:@h2-font-size; }
+h3 { font-size:@h3-font-size; }
+h4 { font-size:@h4-font-size; }
+h5 { font-size:@h5-font-size; }
+h6 { font-size:@h6-font-size; }
+
+/* Form */
+label { color:@form-label-color; }
+
+/* --- CORPS DE PAGE --- */
+
+#global {
+    background: @corps-background-color;
+}
+
+#corps-de-page  {
+    border-top: @corps-border-size solid @corps-border-color;
+    background: @corps-background-color;
+}
+
+/* --- Titre de page --- */
+#coeur-de-page {
+
+    h1 {
+        font-family: @corps-font-family;
+        color: @corps-font-color;
+        font-size: @corps-font-size;
+    }
+
+    .separateur {
+        color:@corps-separator-color;
+        background-color: @corps-separator-color;
+    }
+
+}
+
+
+select {
+    border:@input-border-size solid @input-border-color;
+}
+
+span.obligatoire,
+.mention-obligatoire span {
+    color: @form-obligatoire-color;
+}
+
+.exemple {
+    color: @form-exemple-color;
+}
+
+/* Ajout bloc .section en remplacement de .formulaire, .consultation, .tableau */
+.section {
+    background-color: @section-background-color;
+
+    h2,
+    legend{
+        color: @h2-font-color;
+    }
+
+    h3 {
+        color: #444444;
+    }
+
+    p {
+        color: @section-font-color;
+    }
+
+    strong {
+        color: @section-font-color
+    }
+
+    .ligne {
+        .valeur {
+            color: @section-font-color;
+        }
+    }
+
+    ul {
+        color: @list-font-color;
+    }
+
+    label {
+        color: @form-label-color;
+    }
+
+    textarea {
+        border:@input-border-size solid @input-border-color;
+        background: @input-background-color;
+    }
+
+    input[type="text"],
+    input[type="file"]{
+        border:@input-border-size solid @input-border-color;
+        background: @input-background-color;
+    }
+
+    input[disabled]{
+        border:@input-border-size solid @input-disabled-border-color;
+        background: @input-disabled-background-color;
+    }
+}

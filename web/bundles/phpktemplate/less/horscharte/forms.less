@@ -1,0 +1,291 @@
+
+/*
+ * Input groups hors charte
+ */
+.phpk-hc-input-group {
+    position: relative; // For dropdowns
+    display: table;
+    border-collapse: separate; // prevent input groups from inheriting border styles from table cells when placed within a table
+
+    clear: inherit;
+    padding: 0px;
+    margin-bottom: 0px;
+
+    &.ligne {
+        label {
+            padding: 5px 8px 7px;
+            padding: 6px 8px \9; // IE8-9
+        }
+    }
+
+    /*
+     *  Normalisation des éléments du formulaire
+     */
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        margin: 4px 0 0;
+        margin-top: 1px \9; // IE8-9
+        line-height: normal;
+    }
+
+    input[type="file"] {
+        display: block;
+    }
+
+    input[type="range"] {
+        display: block;
+        width: 100%;
+    }
+
+    select[multiple],
+    select[size] {
+        height: auto;
+    }
+
+    span {
+
+        input[type="text"],
+        input[type="file"],
+        input[type="password"],
+        input[type="email"],
+        input[type="number"],
+        input[type="url"],
+        input[type="search"],
+        textarea {
+            height: @input-height;
+            border: @input-border-size solid @input-border-color;
+            background: @input-background-color;
+            line-height: @input-height;
+        }
+
+        textarea {
+            height: 100px;
+            padding-top: 0px;
+            width: 196px !important;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-top: 0;
+        }
+
+        input[type="search"]{
+            height: @input-height + 2;
+        }
+
+        input:not([type="radio"]):not([type="checkbox"]),
+            textarea {
+
+            padding-left: @input-padding-left;
+            font-size: @input-font-size;
+            font-weight: normal;
+            color: @input-color;
+            background-color: @input-background-color;
+            border: @input-border-size solid @input-border-color;
+            border-radius: @input-border-radius;
+
+            width:@input-width-normal;
+            &.tiny {
+                width:@input-width-tiny;
+            }
+            &.short {
+                width:@input-width-short;
+            }
+            &.medium {
+                width:@input-width-medium;
+            }
+            &.long {
+                width:@input-width-long;
+            }
+
+            text-align: left;
+            &.text-right {
+                text-align: right;
+                padding-right: @input-padding-left + 2;
+                padding-left: 0px;
+            }
+            &.text-left {
+                padding-right: 0px;
+                padding-left: @input-padding-left;
+                text-align: left;
+            }
+
+        }
+
+        + label {
+            /* Dans le cas où le label est placé après l'input */
+            border-left: 0 !important;
+            margin-left: -4px;
+
+            i {
+                width: @input-icon-width;
+            }
+
+        }
+
+
+
+    }
+
+    label {
+        /* Gestion des labels */
+
+        color:@form-label-color;
+        white-space: nowrap;
+        vertical-align: middle;
+        padding: 6px 8px;
+        font-weight: bold;
+        text-align: center;
+        border: @input-border-size solid @input-border-color;
+        background: @form-label-background-color;
+        line-height: inherit;
+        border-left: none;
+
+        &.w150px {
+            /* Sucharge des classes de la biblicnam */
+            width: inherit;
+            display: block;
+            text-align: left;
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        &:first-child {
+            /* Dans le cas où le span est placé avant l'input */
+            border-right: none;
+            margin-right: -4px; /* Hack IE8 */
+            min-width: 70px;
+            text-align: left;
+            float: left;
+            clear: both;
+            height: 13px;
+            border-left: @input-border-size solid @input-border-color;
+
+            &.just-icon {
+                min-width: 0px;
+
+                + span input {
+                    width: @input-width-normal + 50;
+                    &.tiny {
+                        width:@input-width-tiny + 50;
+                    }
+                    &.short {
+                        width:@input-width-short + 50;
+                    }
+                    &.medium {
+                        width:@input-width-medium + 50;
+                    }
+                    &.long {
+                        width:@input-width-long + 50;
+                    }
+                }
+
+            }
+
+            + span input,
+            + span textarea  {
+                border-left: none !important;
+            }
+
+            + span textarea {
+
+            }
+
+        }
+
+        &.link {
+            cursor: pointer;
+            color: @input-link-color;
+            &:hover {
+                color:@input-link-hover-color;
+            }
+        }
+
+        i {
+            font-size: larger;
+            width: @input-icon-width;
+            font-weight: normal;
+        }
+
+    }
+
+    &.error {
+
+        span input {
+            border-color: @error-color !important;
+            background-color: @error-background-color !important;
+        }
+
+        label {
+            border-color: @error-color !important;
+            color: @error-color !important;
+            background-color: @error-background-color !important;
+        }
+
+        br {
+            display: none;
+        }
+
+        .message_erreur {
+            display: block;
+            color: @error-color !important;
+            margin-top: 3px;
+        }
+
+    }
+
+}
+
+.aide {
+    background: none !important;
+    &:before {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        text-decoration: none;
+        color: @color-vert-6;
+        content: '\f059';
+        font-size: 2.1em;
+
+    }
+    &:hover {
+        &:before {
+            color: @color-vert-11;
+        }
+    }
+}
+
+.listesupp {
+    background: none !important;
+    margin-left: -4px;
+    &:before {
+        .gradient(top, @color-vert-9, darken(@color-vert-9,10%));
+        border:1px solid @input-border-color;
+        border-left: none;
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        text-decoration: none;
+        position: relative;
+        bottom: 3px;
+        padding: 5px;
+        padding: 4px 4px 5px 4px\9; /* Hack ie8 */
+        content: '\f129';
+        color: @color-bleu-3;
+        font-size: 1.4em;
+    }
+
+    &:hover {
+        background: none;
+        &:before {
+            .gradient(top, @color-vert-11, darken(@color-vert-11,10%));
+            border:1px solid @input-border-color;
+            border-left: none;
+            color: @color-noir;
+            cursor: pointer;
+        }
+    }
+}

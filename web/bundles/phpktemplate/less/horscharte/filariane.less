@@ -1,0 +1,20 @@
+.fil-ariane {
+    li {
+        span,
+        span.courant {
+            background: none;
+            &:before {
+                display: inline-block;
+                font: normal normal normal 14px/1 FontAwesome;
+                text-rendering: auto;
+                -webkit-font-smoothing: antialiased;
+                text-decoration: none;
+                position: relative;
+                top: 1px;
+                margin-right: 5px;
+                content: '\f0da';
+                color: @color-bleu-3;
+            }
+        }
+    }
+}
