@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Aide filtrage tableau</title>
+	
+	<link rel="stylesheet" href="../css/biblicnam-structure-sans.min.css" type="text/css" media="screen" />
+</head>
+<body>
+	<div id="global" class="infopopup">
+		<div id="corps-de-page">
+			<div id="coeur-de-page">
+				<h1>Aide filtrage tableau</h1>
+				<div class="section">
+					<h2>Liste des op&eacute;rateurs de filtrage possibles</h2>
+					<dl>
+						<dt>=</dt>
+						<dd>:&nbsp;&eacute;gal &agrave;</dd>
+					</dl>
+					<dl>
+						<dt>!=</dt>
+						<dd>:&nbsp;diff&eacute;rent de</dd>
+					</dl>
+					<dl>
+						<dt>&lt;&gt;</dt>
+						<dd>:&nbsp;diff&eacute;rent de</dd>
+					</dl>
+					<dl>
+						<dt>&lt;</dt>
+						<dd>:&nbsp;inf&eacute;rieur &agrave;</dd>
+					</dl>
+					<dl>
+						<dt>&lt;=</dt>
+						<dd>:&nbsp;inf&eacute;rieur ou &eacute;gal &agrave;</dd>
+					</dl>
+					<dl>
+						<dt>&gt;</dt>
+						<dd>:&nbsp;sup&eacute;rieur &agrave;</dd>
+					</dl>
+					<dl>
+						<dt>&gt;=</dt>
+						<dd>:&nbsp;sup&eacute;rieur ou &eacute;gal &agrave;</dd>
+					</dl>
+				
+				</div>
+				
+				<div class="section">
+					<h2>Liste des caract&egrave;res sp&eacute;ciaux</h2>
+					<dl>
+						<dt>*</dt>
+						<dd>:&nbsp;n&acute;importe quelle cha&icirc;ne de caract&egrave;res</dd>
+					</dl>
+					<dl>
+						<dt>?</dt>
+						<dd>:&nbsp;n&acute;importe quel caract&egrave;re</dd>
+					</dl>
+					<dl>
+						<dt>"texte"</dt>
+						<dd>:&nbsp;Texte exact tenant compte des accents et majuscules</dd>
+					</dl>
+				</div>
+				
+				<div class="section">
+					<h2>Exemples</h2>
+					<dl>
+						<dt>&lt;10</dt>
+						<dd>veut dire tous les nombres inf&eacute;rieurs &agrave; 10.</dd>
+					</dl>
+					<dl>
+						<dt>&gt;=01/01/2005</dt>
+						<dd>veut dire toutes les dates apr&egrave;s le premier janvier 2005 inclus.</dd>
+					</dl>
+					<dl>
+						<dt>p*</dt>
+						<dd>veut dire tous les mots qui commencent par la lettre &acute;p&acute;.</dd>
+					</dl>
+					<dl>
+						<dt>=????</dt>
+						<dd>veut dire tous les mots de quatre lettres.</dd>
+					</dl>
+					<dl>
+						<dt>!=?*</dt>
+						<dd>veut dire toutes les valeurs vides.</dd>
+					</dl>
+					<dl>
+						<dt>"W"</dt>
+						<dd>veut dire tous les mots contenant un W en majuscule</dd>
+					</dl>
+					<dl>
+						<dt>&gt;zu</dt>
+						<dd>
+						veut dire tous les mots class&eacute;s alphab&eacute;tiquement apr&egrave;s le mot 'zu'
+						</dd>
+					</dl>
+				</div>
+				
+				<div class="section">
+					<h2>Fonctionnement</h2>
+					<p>
+					Il n&acute;est possible d&acute;&eacute;crire qu&acute;un op&eacute;rateur par colonne.<br/>
+					Il est possible de filtrer sur plusieurs colonnes.<br/>
+					Le filtrage texte est insensible &agrave; la case et aux accents, il est cependant possible
+					de tenir compte des accents et de la case en encadrant le texte recherch&eacute; par des
+					guillemets.<br/>
+					Les caract&egrave;res sp&eacute;ciaux sont utilis&eacute;s uniquement pour le filtrage texte
+					(hors op&eacute;rateurs inf&eacute;rieur et sup&eacute;rieur).
+					</p>
+				
+					<div class="zone-liens">
+						<div class="barre-boutons">	
+							<a href="#" accesskey="F" class="bouton" title="Fermer (Alt + F)" 
+								onclick="window.close();">
+								<span class="btn_defaut avec_img"><span><span>
+									<span class="btn_fermer">Fermer</span>
+								</span></span></span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
