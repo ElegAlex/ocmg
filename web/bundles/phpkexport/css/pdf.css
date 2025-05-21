@@ -1,0 +1,59 @@
+div#corps-de-page {
+    border-top: none !important;
+}
+
+thead { display: table-header-group }
+tfoot { display: table-row-group }
+tr { page-break-inside: avoid }
+
+.phpk_table {
+    width:100%;
+
+}
+.tab-body td.longText {
+    white-space: normal;
+    padding: 5px 10px;
+}
+
+.phpk_decorator_loupe,.phpk_decorator_checkbox,.phpk_decorator_radio {
+    display: none;
+}
+
+.phpk_tri {
+    background-image: none !important;
+}
+
+.tab-box .tab-body table .tri-asc a:before,
+.tab-box .tab-body table .tri-desc a:before,
+.tab-box .tab-body table .tri a:before { content:normal !important; }
+
+td.phpk_decorator_pictogramme {
+    padding: 0 0 0 15px !important;
+}
+
+td.phpk_decorator_pictogramme div {
+    text-overflow: initial !important;
+    overflow: visible !important;
+}
+
+td.phpk_decorator_pictogramme i {
+    position: relative;
+    top: 10px;
+    right: 12px;
+}
+
+td.phpk_decorator_pictogramme i.fa {
+    position: relative;
+    top: 10px;
+    right: 4px !important;
+    left: initial !important;
+}
+
+.lien {
+    margin: 0 !important;
+}
+
+.tab-box .tab-body table tr td a {
+    pointer-events: none !important;
+    text-decoration: none !important;
+}
