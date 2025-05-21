@@ -1,0 +1,387 @@
+.logoCNAM {
+    z-index: 1;
+}
+#indication_logo {
+    position: absolute;
+    top: 50px;
+    left: 45px;
+    z-index: 2;
+    font-weight: bold;
+    color:#B9D41D;
+    font-size: 0.8em;
+}
+
+/*
+ *   Fil d'Ariane
+ */
+.fil-ariane li span {
+    padding-right: 6px;
+    padding-left: 14px;
+    background: url("../../bundles/phpktemplate/biblicnam/images/filDAriane/picto_menu_r_bleu.gif") #fff 0 no-repeat;
+}
+/* Utile pour le database_switcher */
+.fil-ariane .zone_combo a {
+    background: none;
+}
+/* Utile pour le database_switcher */
+.fil-ariane .ligne label {
+    font-weight: initial;
+    width: auto;
+    padding-top: 5px;
+}
+
+/*
+ *   Positionnement
+ */
+.float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
+
+/*
+ * Listes
+ */
+ul.no-list li {
+    list-style-type: none !important;
+    margin-left: 0px !important;
+}
+
+/*
+ *   Fenêtres
+ */
+.fenetre {
+    width: 520px;
+}
+.fenetre-content {
+    margin: 0 20px;
+    padding: 10px;
+}
+.fenetre-content label {
+    width: 150px;
+}
+
+/*
+ *   Formulaires
+ */
+.section td ul {
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+.fenetre .section .ligne .libelle,
+.section .ligne50 .libelle,
+.section h2 {
+    text-align: left;
+}
+.section h4 {
+    padding: 4px 0;
+    margin-bottom: 10px;
+    background-color: white;
+    text-align: center;
+    border: 1px #CCC solid;
+}
+.section .ligne50 .valeur,
+.fenetre .section .ligne .libelle {
+    width: 45%;
+}
+.fenetre .section .ligne .valeur{
+    width: 50%;
+}
+.fenetre .ligne .zone_champ_saisie input[type=text], .fenetre .ligne .zone_champ_saisie {
+    width: 50%;
+}
+.fenetre .ligne .erreur_champ input[type=text], .fenetre ligne .erreur_champ {
+    width: 100%;
+}
+
+.section input[type="number"],
+.section input[type="email"],
+.section input[type="tel"] {
+    height: 20px;
+    border: 1px solid #ccc;
+    background: #FFF;
+    line-height: 20px;
+    padding-left: 2px;
+}
+
+/* formulaire centré */
+.form_center .w150px{
+    width: 45% !important;
+}
+.section .ligne .libelle {
+    width: 50%;
+}
+.section .ligne .valeur {
+    width: auto;
+}
+
+/*
+ *   Contenu de page
+ */
+a.modale_aide { cursor: pointer; }
+.infobulle {  cursor: help; }
+
+/*
+ *   Liens
+ */
+a.doc-pdf, a.doc-excel, a.doc-tout-format, a.doc-word, a.doc-archive, a.piece-joint {
+    padding: 3px 15px 4px 17px;
+    cursor: pointer;
+}
+
+/*
+ *  Etapes
+ */
+.etapes a[aria-selected="true"] span>span {
+    font-weight: bold;
+}
+
+/*
+ *  Tableaux
+ */
+.phpk_table tr.filtre.ligne2 {
+    position: relative;
+}
+.tab-body { max-width: 100%; }
+.tab-body table { table-layout: fixed; }
+.tab-body tr:hover { background-color: #c2e3eb; }
+.tab-body table tr>td[display=table-cell]:first-child { border-left: none; }
+.tab-body td div {
+    word-break: break-all;
+    text-overflow: ellipsis;
+    overflow-y: hidden;
+    overflow: hidden;
+    vertical-align: middle;
+    position: relative;
+}
+/* Permet de gagner de la place (15px à gauche / 15px à droite) dans le cas d'une colonne dédiée à une icone, comme une loupe */
+.tab-box .tab-body td.pictogramme, .tab-box .tab-body th.pictogramme {
+    padding: 0;
+}
+
+.phpk_table_export {
+    float: right;
+    margin-top: 7px;
+}
+
+.phpk_table_export a{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+td.phpk_decorator_numeric {
+    text-align: right;
+}
+
+.phpk_decorator_checkbox {
+    text-align: center;
+}
+
+.phpk_decorator_color {
+    text-align: center !important;
+}
+
+.phpk_champ_color {
+    width: 90%;
+    min-height: 20px;
+    border: 1px solid #CCC;
+}
+
+/* Affichage spécifique au filtre colorpicker */
+.phpk_table tr.filtre td .colorpicker-input {
+    width: 90%;
+}
+
+.phpk_table tr.filtre td .colorpicker-box {
+    border-top: none;
+}
+
+.phpk_table tr.filtre > td:last-child .colorpicker-box ul li {
+    clear: none !important;
+}
+
+/* Surchage de la biblicnam */
+tr.filtre.top > td {
+    padding-top: 5px !important;
+}
+
+/* Les colonnes "longText" ont une max width définie pour les deux modes différents */
+.tab-body td.longText {
+    max-width: 200px;
+}
+table.liste tr td {
+    vertical-align: middle;
+}
+table.liste tr td:first-child:before {
+    content: "- ";
+}
+/* Gestion de l'attribut "inline" des formulaires (twig) */
+div.phpk_form_inline {
+    display: table;
+    width: 100%;
+}
+div.phpk_form_inline div.ligne {
+    display: table-cell;
+}
+div.phpk_form_inline span.barre-boutons {
+    top: 0px !important;
+}
+
+.zone-message, .zone-alerte {
+    padding: 7px 0 5px 30px !important;
+}
+
+.zone-info {
+    padding: 6px 0 6px 15px !important;
+}
+
+/*
+ *   Notification
+ */
+.phpk_notification {
+    position: absolute;
+    top: 0;
+    left: 35%;
+    width:30%;
+    height: 35px;
+    border: 1px solid #04819e;
+    border-top: 0;
+    font-size: 1.2em;
+    padding: 5px;
+    text-align: center;
+    z-index: 101;
+    color: #097182;
+}
+.phpk_notification_success {
+    background-color: #e8f5c2;
+}
+.phpk_notification_error {
+    background-color: #fffedb;
+    border: 1px solid #bb0f00;
+    border-top: 0;
+    color: #000;
+}
+
+.phpk-flash-alerte {
+    margin-bottom: 0px;
+    border-top: none;
+    border-bottom: 1px #bb0f00 solid;
+    font-weight: bold;
+    color: #bb0f00 !important;
+}
+
+.phpk-flash-message {
+    margin-bottom: 0px;
+    border-top: none;
+    border-bottom: 1px #000 solid;
+    font-weight: bold;
+}
+
+.phpk-flash-info {
+    border-bottom: 1px #000 solid;
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+
+.phpk-flash-fade {
+    position: absolute;
+    width: 100%;
+}
+
+/*
+ *   Fieldset - Présentation de code
+ */
+fieldset.code {
+    padding: 0.5em;
+    background-color: #e0f1f5;
+    border: 1px dashed black;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 5px;
+    margin-top: 15px;
+}
+fieldset.code legend {
+    display: block;
+    border: 1px solid black;
+    background-color: #f1f1f1;
+    text-align: center;
+    margin-top: -10px;
+    margin-left: 10px;
+    padding:2px;
+    line-height: 1.2em;
+}
+
+/*
+ *  colorpicker
+ */
+.colorpicker-input {
+    width:44px;
+    height:20px;
+    border:1px solid #CCC;
+    cursor:pointer;
+    display: inline-block;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.colorpicker-box {
+    border-left: 1px solid #000;
+    border-top: 1px solid #000;
+    position: absolute;
+    padding: 0px;
+    z-index: 9999;
+}
+
+.colorpicker-box ul {
+    list-style: none;
+    padding: 0px !important;
+    margin: 0px !important;
+    float: left;
+}
+
+.colorpicker-box ul li {
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    margin: 0px;
+    float: left;
+    cursor: pointer;
+}
+
+/*
+ *  Consultation
+ */
+.consultation span.valeur.phpk_consultation_couleur{
+    width:20px !important;
+    margin-left: 5px !important;
+    border: 1px solid #CCC;
+    cursor: default;
+}
+.consultation span.valeur>a.lien {
+    margin: 0 !important;
+}
+
+.consultation h4 {
+    margin: 10px 0;
+}
+
+.consultation span.libelle {
+    vertical-align: top;
+}
+
+.consultation hr {
+    clear: both;
+}
+
+/*
+ *  Couleurs
+ */
+.rouge { color: #B94A48 !important; }
+.vert { color: #468847 !important; }
+.orange { color: #C09853 !important; }
+.bleu { color: #3A87AD !important; }
+.blanc { color: #FFFFFF !important; }
+.noir { color: #000000 !important; }
+.gris { color: #999999 !important; }
