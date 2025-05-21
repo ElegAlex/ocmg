@@ -1,0 +1,283 @@
+/* Body */
+@body-background-color: @color-bleu-2;
+@body-font-size: 62.5%;
+@body-font-color: @color-gris-2;
+@a-color: @color-bleu-6;
+@a-hover-color: @color-noir;
+
+@error-color: @color-rouge-2;
+@error-background-color: @color-jaune-1;
+@error-border-color: @color-rouge-2;
+
+@h1-font-size: 1.7em;
+@h2-font-size: 1.5em;
+@h2-font-color: @color-bleu-7;
+@h3-font-size: 1.1em;
+@h3-font-color: @color-gris-2;
+@h4-font-size: 1.05em;
+@h5-font-size: 1.05em;
+@h6-font-size: .95em;
+
+/* Entete */
+@entete-background-color: @color-blanc;
+@entete-indication-logo-top: 50px;
+@entete-indication-logo-left: 45px;
+@entete-indication-logo-color: @color-vert-3;
+@entete-lien-app-color: @color-gris-2;
+@entete-lien-quitter-color: @color-rouge-2;
+
+@entete-lien-color: @color-bleu-6;
+@entete-lien-border-color: @color-gris-5;
+@entete-lien-hover-color: @color-noir;
+
+@entete-h2-background-color: @color-blanc;
+
+/* Corps */
+@corps-background-color: @color-blanc;
+@corps-border-color: @color-bleu-3;
+@corps-border-size: 3px;
+@corps-font-family: "tahoma",arial, helvetica, sans-serif;
+@corps-font-color: @color-bleu-4;
+@corps-font-size: 1.45em;
+@corps-separator-color: @color-gris-5;
+
+/* Arborescence */
+@arborescence-li-color: @color-gris-2;
+@arborescence-li-border-color: @color-gris-9;
+@arborescence-inactif-color: @color-gris-6;
+@arborescence-action-background-color: @color-gris-5;
+@arborescence-selected-background-color: @color-bleu-2;
+@arborescence-focus-background-color: @color-vert-2;
+
+/* Bloc pliable */
+@blocpliable-header-color: @color-bleu-6;
+@blocpliable-header-hover-color: @color-noir;
+
+/* Boutons */
+@bouton-intermediaire-action-color: @color-bleu-8;
+@bouton-intermediaire-inactif-color: @color-blanc;
+@bouton-action-color: @color-blanc;
+@bouton-inactif-color: @color-blanc;
+@bouton-defaut-color: @color-gris-2;
+@bouton-defaut-hover-color: @color-noir;
+@bouton-intermediaire-hover: @color-noir;
+
+/* Calendrier */
+@calendrier-border-color: @color-vert-5;
+@calendrier-border-size:2px;
+@calendrier-background-color: @color-blanc;
+@calendrier-header-background-color: @color-bleu-9;
+@calendrier-header-title-color: @color-blanc;
+@calendrier-header-boutons-background-color: @color-blanc;
+@calendrier-header-boutons-color: @color-gris-10;
+@calendrier-day-background-color: @color-gris-11;
+@calendrier-week-background-color: @color-bleu-2;
+@calendrier-title-background-color: @color-gris-11;
+@calendrier-month-background-color: @color-gris-11;
+@calendrier-month-color: @color-gris-12;
+@calendrier-unavailable-color: @color-gris-12;
+@calendrier-current-color: @color-gris-2;
+@calendrier-current-background-color: @color-vert-2;
+@calendrier-selected-background-color: @color-vert-6;
+@calendrier-item-color: @color-gris-2;
+@calendrier-item-hover-background-color: @color-bleu-2;
+@calendrier-td-color: @color-gris-12;
+@calendrier-th-color: @color-gris-2;
+@calendrier-aujourdhui-color: @color-bleu-3;
+@calendrier-aujourdhui-disabled-color: @color-gris-6;
+@calendrier-title-mois-annee-background-color: @color-vert-2;
+@calendrier-nonouvrable-background-color: @color-gris-4;
+
+/* Domiciliation */
+@domiciliation-rib-color: @color-gris-6;
+
+/* Dossiers */
+@dossier-background-color: @color-blanc;
+@dossier-lien-color: @color-gris-2;
+@dossier-lien-background-color: @color-vert-2;
+@dossier-lien-border-color: @color-blanc;
+@dossier-lien-selected-border-top-color: @color-vert-6;
+@dossier-lien-selected-border-bottom-color: @color-gris-3;
+@dossier-lien-selected-background-color: @color-gris-3;
+@dossier-lien-selected-color: @color-bleu-7;
+@dossier-lien-disabled-background-color: @color-gris-4;
+@dossier-lien-disabled-hover-background-color: @color-gris-4;
+@dossier-lien-disabled-hover-color: @dossier-lien-color;
+@dossier-lien-hover-color: @color-noir;
+@dossier-lien-hover-background-color: @color-jaune-2;
+@dossier-suivant-background-color: @color-bleu-3;
+@dossier-suivant-color: @color-blanc;
+@dossier-suivant-disabled-background-color: @color-gris-4;
+@dossier-suivant-disabled-color: @color-noir;
+@dossier-sub-color: @color-gris-4;
+
+/* Section */
+@section-background-color: @color-gris-3;
+@section-font-color: @color-noir;
+
+/* Navigation */
+@navigation-horizontale-background-color: @color-blanc;
+@navigation-horizontale-font-color: @color-blanc;
+@navigation-horizontale-border-color: @color-blanc;
+@navigation-horizontale-selected-font-color: @color-bleu-6;
+@navigation-horizontale-selected-background-color: @color-bleu-2;
+@navigation-horizontale-hover-background-color: @color-vert-2;
+
+@navigation-verticale-background-color: @color-bleu-3;
+@navigation-verticale-font-color: @color-blanc;
+@navigation-verticale-border-color: @color-blanc;
+@navigation-verticale-selected-font-color: @color-bleu-6;
+@navigation-verticale-selected-background-color: @color-bleu-2;
+@navigation-verticale-hover-background-color: @color-vert-2;
+
+/* Etapes */
+@etapes-section-externe-background-color: @color-vert-4;
+
+/* Fenetre */
+@fenetre-border-color: @color-gris-2;
+@fenetre-background-color: @color-blanc;
+
+@fenetre-header-background-color: @color-bleu-4;
+@fenetre-header-font-color: @color-blanc;
+
+/* Commentaire */
+@commentaire-font-color: @color-bleu-4;
+@commentaire-background-color: @color-blanc;
+
+/* Bulle */
+@bulle-background-color: @color-jaune-1;
+@bulle-border-color: @color-bleu-5;
+@bulle-header-background-color: @color-jaune-1;
+@bulle-header-font-color: @color-blanc;
+@bulle-header-border-color: @color-bleu-3;
+
+/* Fil d'ariane */
+@filariane-background-image: url("../../biblicnam/images/filDAriane/picto_menu_r_bleu.gif");
+
+/* Fil discusion */
+@fildiscusion-color: @color-noir;
+@fildiscusion-h5-color: @color-bleu-7;
+
+/* Fieldset code */
+@fieldset-code-background-color: @color-bleu-2;
+@fieldset-code-border-color: @color-noir;
+@fieldset-code-border-size: 1px;
+@fieldset-code-legend-color: @color-gris-3;
+
+/* Liens */
+@lien-color: @color-bleu-6;
+@lien-disabled-hover-color: @color-noir;
+
+/* Liste */
+@list-font-color: @color-noir;
+
+/* Onglet */
+@onglet-background-color: @color-blanc;
+@onglet-element-background-color: @color-vert-2;
+@onglet-element-color: @color-gris-2;
+@onglet-element-border-color: @color-blanc;
+@onglet-element-selected-background-color: @color-gris-3;
+@onglet-element-selected-color: @color-bleu-7;
+@onglet-element-selected-border-top-color: @color-vert-6;
+@onglet-element-selected-border-bottom-color: @color-gris-3;
+@onglet-element-selected-hover-background-color: @color-gris-3;
+@onglet-element-selected-hover-color: @color-bleu-7;
+@onglet-element-disabled-background-color: @color-gris-4;
+@onglet-element-disabled-hover-background-color: @color-gris-4;
+@onglet-element-disabled-hover-color: @color-gris-2;
+@onglet-element-hover-background-color: @color-vert-2;
+@onglet-element-hover-color: @color-noir;
+@onglet-element-hover-background-color: @color-jaune-2;
+
+/* Pied de page */
+@piedpage-background-color: @color-bleu-2;
+@piedpage-border-color: @color-blanc;
+@piedpage-color: @color-gris-6;
+
+/* Progression */
+@progression-background-color: @color-bleu-2;
+@progression-error-message-color: @error-color;
+@progression-global-error-background-color: @error-color;
+@progression-global-error-color: @color-blanc;
+@progress-border-color: @color-blanc;
+@progress-background-color: @color-gris-13;
+@progress-value-color: @color-bleu-6;
+@pbar-background-color: @color-bleu-6;
+
+/* Tableau */
+@table-tr-line-height: 1.2em !important;
+@table-tr-clickable-hover-background-color:@color-vert-7;
+@table-tr-tri-background-color: @color-bleu-3;
+@table-tr-impair-background-color: @color-blanc;
+@table-tr-pair-background-color: @color-bleu-2;
+@table-tr-hover-background-color: @color-bleu-10;
+@table-th-background-color: @color-bleu-3;
+@table-th-color: @color-blanc;
+@table-th-border-color: @color-bleu-10;
+@table-th-a-color: @color-blanc;
+@table-th-a-hover-background-color: @color-bleu-3;
+@table-td-border-color: @color-bleu-10;
+@table-td-color: @color-noir;
+@table-td-background-color: @color-blanc;
+@table-top-td-border-color: @color-bleu-3;
+@table-paging-td-background-color: @color-blanc;
+@table-paging-td-border-color: @color-blanc;
+@table-champ_filtre-border-color: @color-gris-4;
+@table-resultat-color: @color-noir;
+@table-filtre-input-border-color:@color-gris-4;
+@table-filtre-input-background-color: @color-blanc;
+@table-pagination-color: @color-noir;
+
+@interpage-background-color: @color-bleu-12;
+@interpage-courant-background-color: @color-vert-2;
+@interpage-hover-color: @color-noir;
+
+/* Zone */
+@zone-alerte-background-color: @error-background-color;
+@zone-alerte-border-color: @error-border-color;
+@zone-alerte-color: @color-noir;
+@zone-message-background-color: @color-vert-8;
+@zone-message-border-color: @color-vert-8;
+@zone-message-color: @color-noir;
+@zone-info-background-color:@color-bleu-2;
+@zone-attente-background-color:@color-bleu-2;
+@notification-border-color: @color-bleu-3;
+@notification-success-background-color: @color-vert-9;
+@notification-error-background-color: @error-background-color;
+@notification-error-border-color: @error-border-color;
+@notification-error-color: @color-noir;
+@notification-alerte-border-color: @error-border-color;
+@notification-alerte-color: @error-color;
+@notification-message-border-color: @color-noir;
+@notification-info-border-color: @color-noir;
+
+/* Formulaires */
+@form-label-color: @color-gris-2;
+@form-label-background-color: @color-blanc;
+@form-obligatoire-color: @color-rouge-2;
+@form-exemple-color: @color-gris-6;
+
+@input-border-color: @color-gris-4;
+@input-border-size: 1px;
+@input-background-color: @color-blanc;
+@input-height: 20px;
+@input-font-color: @color-noir;
+
+@input-disabled-border-color:@color-gris-8;
+@input-disabled-background-color:@color-gris-7;
+
+@input-error-color: @error-color;
+@input-error-background-color: @error-background-color;
+
+@input-select-hover-background-color: @color-bleu-3;
+@input-select-hover-font-color: @color-blanc;
+@input-select-group-background-color: @color-gris-4;
+@input-select-group-color: @color-gris-4;
+@input-select-noresult-color: @color-gris-1;
+
+@input-colorpicker-width: 44px;
+@input-colorpicker-height: 19px;
+@input-colorpicker-border-color: @color-noir;
+@input-colorpicker-border-size: @input-border-size;
+@input-colorpicker-box-size: 15px;
+
