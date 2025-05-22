@@ -271,7 +271,7 @@ class Praticien
     /**
      * @return ArrayCollection
      */
-    public function getDatas(): Praticien
+    public function getDatas(): ArrayCollection
     {
         return $this->datas;
     }
