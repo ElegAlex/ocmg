@@ -1,0 +1,39 @@
+app_index:
+    path: /
+    defaults: { _controller: 'App\\Controller\\DefaultController::indexAction' }
+
+app_index_download_admin:
+    path: /download/docUser
+    defaults: { _controller: 'App\\Controller\\DefaultController::downloadDocAdminAction' }
+
+app_index_download_user:
+    path: /download/docAdmin
+    defaults: { _controller: 'App\\Controller\\DefaultController::downloadDocUserAction' }
+
+app_index_download:
+    path: /download
+    defaults: { _controller: 'App\\Controller\\DefaultController::downloadAction' }
+
+app_requete:
+    resource: 'routing/requete.yml'
+    prefix: /requete
+
+app_admin:
+    resource: 'routing/adminCiblage.yml'
+    prefix: /admin
+
+app_admin_textaccueil:
+    resource: 'routing/adminTextAccueil.yml'
+    prefix: /textAccueil
+
+app_admin_periode:
+    resource: 'routing/adminperiode.yml'
+    prefix: /periode
+
+app_admin_region:
+    resource: 'routing/adminRegion.yml'
+    prefix: /local
+
+app_import_fichier:
+    resource: 'routing/import.yml'
+    prefix: /import

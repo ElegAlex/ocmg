@@ -1,0 +1,16 @@
+app_admin_paramciblage:
+  path: /parametrage/ajoutciblage
+  defaults: { _controller: 'App\\Controller\\AdministrationController\\AdminCiblageController::ajoutThemeCiblageAction' }
+
+app_admin_deleteaccueil:
+  path: /parametrage/delete/{id}
+  defaults: { _controller: 'App\\Controller\\AdministrationController\\AdminCiblageController::deleteAction', id: null }
+  #methods: POST
+  requirements:
+    id: '\d+'
+
+
+
+
+
+

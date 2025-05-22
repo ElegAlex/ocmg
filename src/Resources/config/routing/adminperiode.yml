@@ -1,0 +1,9 @@
+app_periode_ajouter:
+  path: /ajoutperiode
+  defaults: { _controller: 'App\\Controller\\AdministrationController\\AdminPeriodeController::ajoutperiodeAction' }
+  methods: POST|GET
+
+app_periode_disable:
+  path: /{id}/disableperiode
+  defaults: { _controller: 'App\\Controller\\AdministrationController\\AdminPeriodeController::disableperiodeAction' }
+  methods: POST|GET

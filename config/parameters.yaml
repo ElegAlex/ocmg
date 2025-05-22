@@ -1,0 +1,17 @@
+parameters:
+    bundle.name: App
+    name: 'Outil de ciblage MG'
+    version: 0.0.0
+    description: 'ciblage des prescriptions des MG'
+    indicationLogo: 'DRSM Idf'
+    assistance: stephanie.delepine@assurance-maladie.fr
+    secret: 0e4335419b2c5a2b660cc8bbefe2dd30
+    mailer_transport: null
+    mailer_host: null
+    mailer_user: null
+    mailer_password: null
+imports:
+    resource: '../src/Resources/config/arborescence.yml'
+phpk_security:
+    accessmaster_system: SY_OCMG
+    accessmaster_required: false

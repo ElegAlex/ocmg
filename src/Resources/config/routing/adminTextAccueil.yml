@@ -1,0 +1,4 @@
+app_textaccueil_ajouter:
+  path: /ajout
+  defaults: { _controller: 'App\\Controller\\AdministrationController\\AdminTextAccueilController::ajoutTextAccueilAction' }
+  methods: POST|GET

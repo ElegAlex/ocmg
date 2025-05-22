@@ -1,0 +1,10 @@
+app_region_show:
+  path: /show
+  defaults: { _controller: 'App\\Controller\\AdministrationController\\AdminRegionController::showAction' }
+  methods: POST|GET
+
+app_region_isactive:
+  path: /{id}/isactive/
+  defaults: { _controller: 'App\\Controller\\AdministrationController\\AdminRegionController::isregionactiveAction' }
+  methods: POST|GET
+

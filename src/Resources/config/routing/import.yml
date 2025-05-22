@@ -1,0 +1,24 @@
+app_import_fichier_detail:
+  path:   /detail/{id}
+  defaults: { _controller: 'App\\Controller\\AdministrationController\\ImportController::detailAction' }
+
+app_import_fichier_praticiens:
+  path:   /praticien
+  defaults: { _controller: 'App\\Controller\\AdministrationController\\ImportController::uploadpraticienAction' }
+
+app_import_fichier_ciblage:
+  path:   /ciblage
+  defaults: { _controller: 'App\\Controller\\AdministrationController\\ImportController::uploadciblageAction' }
+
+app_import_fichier_delete:
+  path:   /{id}/delete
+  defaults: { _controller: 'App\\Controller\\AdministrationController\\ImportController::deleteAction' }
+
+app_import_fichier_liste:
+  path:   /liste
+  defaults: { _controller: 'App\\Controller\\AdministrationController\\ImportController::listeAction' }
+
+app_import_fichier_commentaire:
+  path:   /commentaire
+  defaults: { _controller: 'App\\Controller\\AdministrationController\\ImportController::uploadcommentaireAction' }
+
