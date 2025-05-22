@@ -10,9 +10,6 @@ app_index_download_user:
     path: /download/docAdmin
     defaults: { _controller: 'App\\Controller\\DefaultController::downloadDocUserAction' }
 
-app_index_download:
-    path: /download
-    defaults: { _controller: 'App\\Controller\\DefaultController::downloadAction' }
 
 app_requete:
     resource: 'routing/requete.yml'

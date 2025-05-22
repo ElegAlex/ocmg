@@ -21,7 +21,7 @@ class DepartementFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $csv = fopen(__DIR__ . '../../../../tmp/departement.csv', 'r');
+        $csv = fopen(__DIR__ . '/../../tmp/departement.csv', 'r');
 //        /home/delepine/PhpstormProjects/OCMG2-0.0.0/src/AppBundle/DataFixtures/
 
         $i = 0;

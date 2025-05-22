@@ -22,7 +22,7 @@ class VilleFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $csv = fopen(__DIR__ . '../../../../tmp/laposte_hexasmal.csv', 'r');
+        $csv = fopen(__DIR__ . '/../../tmp/laposte_hexasmal.csv', 'r');
 
         $i = 1;
 
