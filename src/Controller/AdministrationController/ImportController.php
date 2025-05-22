@@ -25,12 +25,12 @@ use App\Tableaux\ListeCiblageUpload;
 use App\Tableaux\ListePraticiensUpload;
 use App\Tableaux\ListeUpload;
 use CNAMTS\PHPK\CoreBundle\Controller\AbstractController;
-use Doctrine\DBAL\Types\Type;
+
 use League\Csv\Reader;
 use League\Csv\Statement;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Config\Definition\Exception\Exception;
+use \Exception;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -325,7 +325,7 @@ class ImportController extends AbstractController
 
 
                         $fichierUpload->setErrorCode($response->getStatusCode());
-                        throw new Exception('Une erreur est survenue lors du chargement du fichier. Supprimez le fichier Praticien et relancez l\'import');
+                        throw new \Exception('Une erreur est survenue lors du chargement du fichier. Supprimez le fichier Praticien et relancez l\'import');
 
                     }
 
@@ -665,7 +665,7 @@ class ImportController extends AbstractController
                 if ($nbRowUploadFile !== $nbRowUploaded) {
                     $statusCode = $response->getStatusCode();
                     $fichierUpload->setErrorCode($statusCode);
-                    throw new Exception('Une erreur est survenue lors du chargement du fichier. Supprimez le fichier ciblé et relancez l\'import');
+                    throw new \Exception('Une erreur est survenue lors du chargement du fichier. Supprimez le fichier ciblé et relancez l\'import');
                 }
                 $statusCode = $response->getStatusCode();
                 $fichierUpload->setErrorCode($statusCode);
@@ -875,7 +875,7 @@ class ImportController extends AbstractController
 
                     $statusCode = $response->getStatusCode();
                     $fichierUpload->setErrorCode($statusCode);
-                    throw new Exception('Une erreur est survenue lors du chargement du fichier. Supprimez le fichier  et relancez l\'import');
+                    throw new \Exception('Une erreur est survenue lors du chargement du fichier. Supprimez le fichier  et relancez l\'import');
 
                 }
                 $statusCode = $response->getStatusCode();
