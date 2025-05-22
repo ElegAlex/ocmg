@@ -391,7 +391,8 @@ class FichierUpload
 
     public function getUploadRootDir(): string
     {
-        return __DIR__ . 'tmp';
+        // Store uploaded files in a temporary directory located next to this entity file
+        return __DIR__ . '/tmp';
 
     }
 
@@ -402,8 +403,12 @@ class FichierUpload
     {
 
         if (null !== $this->file) {
+            $directory = $this->getUploadRootDir();
+            if (!is_dir($directory)) {
+                mkdir($directory, 0777, true);
+            }
 
-            $this->file->move($this->getUploadRootDir(), $this->path);
+            $this->file->move($directory, $this->path);
             unset($this->file);
 
             if ($this->tempFile !== null) unlink($this->tempFile);
@@ -428,7 +433,7 @@ class FichierUpload
     public function removeUpload()
     {
         $file = $this->getAbsolutePath();
-        if (file_exists($this->file)) unlink($file);
+        if (file_exists($file)) unlink($file);
 
     }
 
