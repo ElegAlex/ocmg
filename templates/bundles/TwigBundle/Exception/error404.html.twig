@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div>
+
+        <div class="chzn-container">
+
+
+            <h1>
+                Ho! Page non trouvée, cliquez pour retourner à l'accueil
+                <a href="{{ path('app_index') }}">Retour Accueil</a>
+            </h1>
+            <h2>
+                {{ status_code }}- {{ status_text }}
+
+            </h2>
+
+        </div>
+
+    </div>
+
+{% endblock %}
