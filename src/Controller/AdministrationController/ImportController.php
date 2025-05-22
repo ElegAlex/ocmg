@@ -105,7 +105,7 @@ class ImportController extends AbstractController
                     }
                     $fileName = $fichierUpload->upload();
 
-                    $reader = Reader::createFromPath('%kernel.root_dir%/../../src/AppBundle/Entitytmp/' . basename($file->getFilename()), 'r');
+                    $reader = Reader::createFromPath('%kernel.root_dir%/../../src/Entity/tmp/' . basename($file->getFilename()), 'r');
                     $reader->setDelimiter(';');
                     $reader->setHeaderOffset(0);
 
@@ -460,7 +460,7 @@ class ImportController extends AbstractController
 
                 $fileName = $fichierUpload->upload();
 
-                $reader = Reader::createFromPath('%kernel.root_dir%/../../src/AppBundle/Entitytmp/' . basename($file->getFilename()), 'r');
+                $reader = Reader::createFromPath('%kernel.root_dir%/../../src/Entity/tmp/' . basename($file->getFilename()), 'r');
 
                 $reader->setDelimiter(';');
 
@@ -773,7 +773,7 @@ class ImportController extends AbstractController
 
                 $fileName = $fichierUpload->upload();
 
-                $reader = Reader::createFromPath('%kernel.root_dir%/../../src/AppBundle/Entitytmp/' . basename($file->getFilename()), 'r');
+                $reader = Reader::createFromPath('%kernel.root_dir%/../../src/Entity/tmp/' . basename($file->getFilename()), 'r');
 
                 $reader->setDelimiter(';');
 

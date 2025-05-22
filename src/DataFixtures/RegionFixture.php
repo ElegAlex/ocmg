@@ -20,7 +20,7 @@ class RegionFixture extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $csv = fopen(__DIR__ . '../../../../tmp/region.csv', 'r');
+        $csv = fopen(__DIR__ . '/../../tmp/region.csv', 'r');
 
         $i = 0;
 

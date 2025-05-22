@@ -18,7 +18,7 @@ class UtaaFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $csv = fopen(__DIR__ . '../../../../tmp/departement.csv', 'r');
+        $csv = fopen(__DIR__ . '/../../tmp/departement.csv', 'r');
         $i = 0;
         while (!feof($csv)) {
 
