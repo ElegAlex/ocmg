@@ -106,27 +106,19 @@ class ImportController extends AbstractController
                     $fileName = $fichierUpload->upload();
 
                     $reader = Reader::createFromPath('%kernel.root_dir%/../../src/AppBundle/Entitytmp/' . basename($file->getFilename()), 'r');
-
                     $reader->setDelimiter(';');
-
                     $reader->setHeaderOffset(0);
-
-                    $reader->jsonSerialize();
 
                     //nombre de champs dans le fichier uploadé
                     $nbColUploadFile = count($reader->getHeader());
 
-                    $stmt = new Statement();
-
-                    $records = $stmt->process($reader);
-
-                    $records->jsonSerialize();
-
-                    //nombre de lignes contenues dans le fichier uploadé
-                    $nbRowUploadFile = count($records->jsonSerialize());
-
                     //récupère les entêtes du fichier uploadé
-                    $colonneThemes = $records->getHeader();
+                    $colonneThemes = $reader->getHeader();
+
+                    //lecture des enregistrements en mode iterator
+                    $records = $reader->getRecords();
+
+                    $nbRowUploadFile = 0;
                     //controle des entêtes
                     $champFilePraticien = ['DPT', 'LIB_COM', 'UTAA', 'NUM_PS', 'CLE', 'NOM', 'PRENOM'];
 
@@ -174,9 +166,10 @@ class ImportController extends AbstractController
 
                     //controlle que le numéro de praticiens existe
                     $compteur = 1;
-                    $batchSize = 50;
+                    $batchSize = 200;
                     $processed = 0;
                     foreach ($records as $record) {
+                        $nbRowUploadFile++;
                         $compteur++;
 
                         if ($record['NUM_PS'] === "") {
@@ -289,6 +282,7 @@ class ImportController extends AbstractController
                         $processed++;
                         if ($processed % $batchSize === 0) {
                             $em->flush();
+                            // $em->clear(); // optionnel pour liberer la memoire
                         }
 
                     }
@@ -296,6 +290,7 @@ class ImportController extends AbstractController
 
                     // flush remaining entities
                     $em->flush();
+                    // $em->clear(); // optionnel pour liberer la memoire
 
 
                     //récupération des variables du fichier uploadé
@@ -471,22 +466,16 @@ class ImportController extends AbstractController
 
                 $reader->setHeaderOffset(0);
 
-                $reader->jsonSerialize();
-
                 //nombre de champs dans le fichier uploadé
                 $nbColUploadFile = count($reader->getHeader());
 
-                $stmt = new Statement();
-
-                $records = $stmt->process($reader);
-
-                $records->jsonSerialize();
-
-                //nombre de lignes contenues dans le fichier uploadé
-                $nbRowUploadFile = count($records->jsonSerialize());
-
                 //récupère les entêtes du fichier uploadé
-                $colonneThemes = $records->getHeader();
+                $colonneThemes = $reader->getHeader();
+
+                //lecture des enregistrements en mode iterator
+                $records = $reader->getRecords();
+
+                $nbRowUploadFile = 0;
 
 
                 $keyPeriode = array_search('periode', $colonneThemes);
@@ -540,7 +529,10 @@ class ImportController extends AbstractController
 
                 }
                 $compteur = 1;
+                $batchSize = 200;
+                $processed = 0;
                 foreach ($records as $key => $record) {
+                    $nbRowUploadFile++;
                     $compteur++;
                     if ($key === 1) continue;
 
@@ -617,9 +609,19 @@ class ImportController extends AbstractController
                             }
                             $data->setAge($age);
                         }
-                        $data->setTheme($theme);
+                    $data->setTheme($theme);
+                    }
+
+                    $processed++;
+                    if ($processed % $batchSize === 0) {
+                        $em->flush();
+                        // $em->clear(); // optionnel pour liberer la memoire
                     }
                 }
+
+                // flush remaining entities
+                $em->flush();
+                // $em->clear(); // optionnel pour liberer la memoire
 
                 //récupère la taille du fichier uploadé
                 $fileSize = $file->getClientSize();
