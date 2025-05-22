@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div>
+
+        <div class="chzn-container">
+
+
+            <h1>
+                Délai d'attente dépassé
+                <a href="{{ path('app_index') }}">Retour Accueil</a>
+            </h1>
+            <h2>
+                {{ status_code }}- {{ status_text }}
+
+            </h2>
+
+        </div>
+
+    </div>
+
+{% endblock %}

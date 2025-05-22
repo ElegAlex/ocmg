@@ -1,0 +1,44 @@
+parameters:
+    database.default_driver: 'pdo_mysql'
+    database.default_charset: UTF8
+    database.default_host: 127.0.0.1
+    database.default_port: 3306
+    database.default_dbname: ocmg
+    database.default_user: ocmg
+    database.default_password: ocmg_drsm!PWD
+
+    #  database.default_path: '%kernel.root_dir%/../var/data/ocmg.db'
+    # database.default_dbname: 'ocmg'
+
+doctrine:
+    dbal:
+        connections:
+            # Ne pas changer le nom de la connexion par défaut
+            # default:
+            #    driver:   pdo_sqlite
+            #   host:     localhost
+            #   port:     8000
+            #   dbname:   ocmg
+            #   user:     ocmg
+            #   password: ocmg
+            #   path:     '%kernel.root_dir%/../var/data/ocmg.db'
+            #   memory:   false
+            #  charset:  %database.default_charset%
+
+# Ajoutez à la suite autant de connexions que vous le souhaitez
+            default:
+                driver:   '%database.default_driver%'
+                host:     '%database.default_host%'
+                port:     '%database.default_port%'
+                dbname:   '%database.default_dbname%'
+                user:     '%database.default_user%'
+                password: '%database.default_password%'
+                charset:  '%database.default_charset%'
+            #nom:
+            # driver: pdo_mysql
+            # user: dev_user
+            # password: dev_user
+            # host: 55.169.64.31
+            # port:
+            # dbname: ocmg
+            # charset: %database.default_charset%

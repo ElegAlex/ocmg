@@ -1,0 +1,17 @@
+ismum: DELEPINE-03858
+identifiant: '0385818003502401874'
+civilite: M
+nom: DELEPINE
+prenom: Stephanie
+site: '673'
+systeme: SY_ALINEA
+services:
+    PLC1:
+        diversFormulaire: Test
+    PLC2:
+        diversFormulaire: null
+    PLC3:
+        diversFormulaire: null
+    OCMG_ADMIN:
+        diversFormulaire: null
+codeOrganisme: '750'

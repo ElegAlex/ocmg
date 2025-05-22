@@ -1,0 +1,10 @@
+security:
+    providers:
+        in_memory: { memory: null }
+        phpk: { id: phpk_security.user_provider }
+    firewalls:
+        dev: { pattern: ^/(_(profiler|wdt)|css|images|js)/, security: false }
+        login: { pattern: ^/phpk_login/, security: false }
+        secured_area: { pattern: ^/, guard: { authenticators: [phpk.accessmaster_authenticator, phpk.bouchon_authenticator], entry_point: phpk.accessmaster_authenticator }, logout: { path: phpk_logout, target: app_index } }
+    encoders:
+        CNAMTS\PHPK\SecurityBundle\Security\User\User: plaintext

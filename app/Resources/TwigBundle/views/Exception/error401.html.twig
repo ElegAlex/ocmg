@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div>
+
+        <div class="chzn-container">
+
+
+            <h1>
+                Vous n'êtes pas autorisé à accéder à cette application
+            </h1>
+            <h2>
+                {{ status_code }}- {{ status_text }}
+
+            </h2>
+
+        </div>
+
+    </div>
+
+{% endblock %}

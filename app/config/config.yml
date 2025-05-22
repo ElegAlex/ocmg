@@ -1,0 +1,84 @@
+imports:
+    -
+        resource: parameters.yml
+    -
+        resource: security.yml
+    -
+        resource: services.yml
+    -
+        resource: databases.yml
+    -
+        resource: '@PHPKCoreBundle/Resources/config/parameters.yml'
+parameters:
+    locale: fr
+framework:
+    secret: '%secret%'
+    router:
+        resource: '%kernel.project_dir%/app/config/routing.yml'
+        strict_requirements: null
+    form: null
+    csrf_protection: null
+    validation:
+        enabled: true
+        enable_annotations: true
+    templating:
+        engines: [twig]
+    default_locale: '%locale%'
+    trusted_hosts: null
+    trusted_proxies: null
+    session:
+        handler_id: session.handler.native_file
+        save_path: '%kernel.project_dir%/var/sessions'
+    fragments: null
+    http_method_override: true
+twig:
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    globals:
+        phpk_app_name: '%name%'
+        phpk_app_description: '%description%'
+        phpk_app_indication_logo: '%indicationLogo%'
+        phpk_app_assistance: '%assistance%'
+        phpk_app_version: '%version%'
+    form_themes:
+        - 'PHPKTemplateBundle:form:template.html.twig'
+        - 'PHPKTemplateBundle:form:button.html.twig'
+assetic:
+    use_controller: false
+    bundles:
+        - TwigBundle
+        - PHPKCoreBundle
+        - PHPKTemplateBundle
+        - '%bundle.name%'
+        - PHPKSecurityBundle
+    debug: '%kernel.debug%'
+    filters:
+        cssrewrite: null
+doctrine:
+    dbal:
+        default_connection: default
+    orm:
+        auto_generate_proxy_classes: '%kernel.debug%'
+        default_entity_manager: default
+        entity_managers: { auto_mapping: true, default: { connection: default, mappings: { '%bundle.name%': { mapping: true, type: annotation } }, dql: { string_functions: { cast: CNAMTS\PHPK\CoreBundle\Doctrine\Functions\CastFunction, JSON_EXTRACT: Syslogic\DoctrineJsonFunctions\Query\AST\Functions\Mysql\JsonExtract } } } }
+swiftmailer:
+    transport: '%mailer_transport%'
+    host: '%mailer_host%'
+    username: '%mailer_user%'
+    password: '%mailer_password%'
+    spool:
+        type: memory
+sensio_framework_extra:
+    router:
+        annotations: false
+knp_snappy:
+    pdf:
+        enabled: true
+        binary: ../bin/wkhtmltopdf-amd64
+        options: {  }
+        env: null
+    image:
+        enabled: true
+        binary: ../bin/wkhtmltoimage-amd64
+        options: {  }
+        env: null
