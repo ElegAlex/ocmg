@@ -155,8 +155,27 @@ class ImportController extends AbstractController
                         $utaasCiblées[] = $utaaActive['code_utaa'];
 
                     }
+
+                    //preload praticiens, utaas and villes for quick lookup
+                    $existingPraticiens = [];
+                    foreach ($em->getRepository(Praticien::class)->findAll() as $p) {
+                        $existingPraticiens[$p->getCodePraticien()] = $p;
+                    }
+
+                    $existingUtaas = [];
+                    foreach ($em->getRepository(Utaa::class)->findAll() as $u) {
+                        $existingUtaas[$u->getCodeUtaa()] = $u;
+                    }
+
+                    $existingVilles = [];
+                    foreach ($em->getRepository(Ville::class)->findAll() as $v) {
+                        $existingVilles[$v->getLibelleVille()] = $v;
+                    }
+
                     //controlle que le numéro de praticiens existe
                     $compteur = 1;
+                    $batchSize = 50;
+                    $processed = 0;
                     foreach ($records as $record) {
                         $compteur++;
 
@@ -194,12 +213,7 @@ class ImportController extends AbstractController
                         }
 
                         //vérifie que le praticien n'existe pas déjà
-                        $praticien = $em->getRepository(Praticien::class)
-                            ->findOneBy([
-
-                                'codePraticien' => $record['NUM_PS']
-
-                            ]);
+                        $praticien = $existingPraticiens[$record['NUM_PS']] ?? null;
 
                         //si le praticien n 'existe pas il rentre en base de données
                         if (null === $praticien) {
@@ -225,6 +239,7 @@ class ImportController extends AbstractController
                                 ->setPrenomPrat($record['PRENOM']);
 
                             $em->persist($praticien);
+                            $existingPraticiens[$record['NUM_PS']] = $praticien;
 
 
                         }
@@ -246,22 +261,11 @@ class ImportController extends AbstractController
                             );
 
                         }
-                        $utaa = $em->getRepository(Utaa::class)
-                            ->findOneBy([
-
-                                'codeUtaa' => $record['UTAA']
-
-                            ]);
+                        $utaa = $existingUtaas[$record['UTAA']] ?? null;
 
 
                         //recherche si le libelle de la ville existe
-                        $ville = $em->getRepository(Ville::class)
-                            ->findOneBy([
-
-                                    'libelleVille' => $record['LIB_COM'],
-
-                                ]
-                            );
+                        $ville = $existingVilles[$record['LIB_COM']] ?? null;
 
                         //si n'existe pas ajoute une nouvelle ville
                         if (null === $ville) {
@@ -270,7 +274,7 @@ class ImportController extends AbstractController
                                 ->setLibelleVille($record['LIB_COM']);
                             $this->notification('Le fichier uploadé contient une nouvelle commune, elle vient d\'être créée avec succès', 'success');
                             $em->persist($ville);
-
+                            $existingVilles[$record['LIB_COM']] = $ville;
 
                         }
 
@@ -281,6 +285,11 @@ class ImportController extends AbstractController
                         $praticien->setVille($ville);
 
                         $em->persist($praticien);
+
+                        $processed++;
+                        if ($processed % $batchSize === 0) {
+                            $em->flush();
+                        }
 
                     }
 
@@ -302,17 +311,13 @@ class ImportController extends AbstractController
                         ->setNbColUploadFile($nbColUploadFile)
                         ->setNbRowUploaded(0);
 
-                    $em->flush();
-
                     //nombre de lignes uploadées
-                    $nbRowUploaded = count($em->getRepository(Praticien::class)->findAll());
+                    $nbRowUploaded = count($existingPraticiens);
 
                     // ajoute à l'entité le nombre de lignes uploadées
                     $fichierUpload->setNbRowUploaded($nbRowUploaded);
 
                     $em->persist($fichierUpload);
-
-                    $em->flush();
 
                     $response = new Response();
 
