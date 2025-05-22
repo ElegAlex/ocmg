@@ -102,13 +102,14 @@ class dataType extends AbstractType
                 if ($event->getForm()->isSubmitted()) {
 
                     //si l'ageId est null, on affiche le composant de formulaire 'age
-                    if ($this->entityManager->getRepository(Data::class)
+                    $theme = $form->getData();
+
+                    if ($theme !== null && $this->entityManager->getRepository(Data::class)
                             ->SelectAgeIdFromData(
-                                $form->get('theme')
-                                    ->getData()
+                                $theme
                                     ->getId())[0] !== ['age_id' => null]) {
 
-                        $this->addAgeField($form->getParent());
+                        $this->addAgeField($form->getParent(), $theme->getId());
                     }
 
                 }
@@ -118,11 +119,12 @@ class dataType extends AbstractType
 
 
     /**
-     *
+     * Add the age field filtered by the provided theme
      *
      * @param FormInterface $form
+     * @param int $themeId
      */
-    private function addAgeField(FormInterface $form)
+    private function addAgeField(FormInterface $form, int $themeId)
     {
 
         $form->add(
@@ -130,7 +132,8 @@ class dataType extends AbstractType
             ageType::class,
             [
                 'label_attr' => ['id' => 'label_age'],
-                'attr' => ['class' => 'class_age']
+                'attr' => ['class' => 'class_age'],
+                'theme_id' => $themeId
             ]
 
         );
