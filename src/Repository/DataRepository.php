@@ -4,6 +4,7 @@ namespace App\Repository;
 
 
 use App\Entity\Data;
+use App\Entity\Theme;
 use App\Tools\JsonHandler;
 use CNAMTS\PHPK\CoreBundle\Data\Repository;
 use Doctrine\ORM\EntityRepository;
@@ -89,80 +90,46 @@ class DataRepository extends EntityRepository implements Repository
      */
     private function findDataByQuery($theme, $age, $periode, $idDep, $idUtaa)
     {
+        $qb = $this->createQueryBuilder('d')
+            ->select(
+                't.commentaireColonne AS commentaire_colonne',
+                't.colonneTheme AS colonne_theme',
+                'd.datas AS datas',
+                'p.codePraticien AS code_praticien',
+                'p.nomPrat AS nom_prat',
+                'p.prenomPrat AS prenom_prat',
+                'pe.code AS code',
+                'u.codeUtaa AS code_utaa',
+                'dep.codeDep AS code_dep',
+                'v.libelleVille AS libelle_ville'
+            )
+            ->join('d.praticien', 'p')
+            ->join('p.ville', 'v')
+            ->join('p.utaa', 'u')
+            ->join('u.departement', 'dep')
+            ->join('d.periode', 'pe')
+            ->join('d.theme', 't')
+            ->where('d.theme = :theme')
+            ->andWhere('d.periode = :periode')
+            ->setParameter('theme', $theme)
+            ->setParameter('periode', $periode);
 
-
-        $connexion = $this->getEntityManager()->getConnection();
-
-        //gestion du paramètre $age en fonction du theme
-
-        //paramétrage pour all age
-        $joinage = '';
-        $insertAge = '';
-        $selectAge = '';
-        $insertUtaa = '';
-        $insertDep = '';
-        $joinDep = 'join
-                         departement d2 on u.departement_id = d2.id';
-
-        //paramétrage pour une tranche d age donc un ageID
         if ($age !== '') {
-
-            $insertAge = ' and d.age_id ="' . $age . '"';
+            $qb->andWhere('d.age = :age')
+               ->setParameter('age', $age);
         }
 
-        if ($idUtaa != null) {
-
-            $insertUtaa = ' and p.utaa_id= ' . $idUtaa;
-
+        if (null !== $idUtaa) {
+            $qb->andWhere('p.utaa = :utaa')
+               ->setParameter('utaa', $idUtaa);
         }
-        if ($idDep != null) {
-            $insertDep = ' and u.departement_id = ' . $idDep;
 
-            $joinDep = 'join
-                         departement d2 on u.departement_id = d2.id';
+        if (null !== $idDep) {
+            $qb->andWhere('u.departement = :departement')
+               ->setParameter('departement', $idDep);
         }
-        //requete qui sélectionne les datas en fonction du theme, age et de la période, join tables praticien, ville, utaa, département
-        //enleve le JSON_EXTRACT sur le serveur de test et de prod car mariadb
-        $sql = 'select
-                    t.commentaire_colonne,
-                    t.colonne_theme  ,                                 
-                    d.datas as datas,
-                    p.code_praticien,
-                    p.nom_prat,
-                    p.prenom_prat,                    
-                    p2.code,
-                    u.code_utaa,
-                    d2.code_dep,
-                    v.libelle_ville
-                    ' . $selectAge . '
-   
-                from
-                     data d
-                join
-                         praticien p on d.praticien_id = p.id
-                
-                join
-                         ville v on p.ville_id = v.id                
-                join
-                         utaa u on p.utaa_id = u.id
-                ' . $joinDep . '
-                join
-                         periode p2 on d.periode_id = p2.id
-                
-                join
-                         theme t on d.theme_id = t.id ' . $joinage . '          
-                
-                where
-                
-                    d.theme_id = "' . $theme . '
-                    "  and d.periode_id= ' . $periode .
-            $insertAge . $insertUtaa . $insertDep;
 
-
-        $statement = $connexion->query($sql);
-
-
-        return $statement->fetchAll();
+        return $qb->getQuery()->getArrayResult();
     }
 
     /**
@@ -178,100 +145,64 @@ class DataRepository extends EntityRepository implements Repository
      */
     public function selectDatasRequeteGlobale($theme, $age, $periode, $libelles = [0], $idDep, $idUtaa)
     {
-
         $allDatas = $this->findDataByQuery($theme, $age, $periode, $idDep, $idUtaa);
 
         //récupérer les datas du themeID
         $em = $this->getEntityManager();
-        $themes =
-            $em->getRepository(Theme::class)
-                ->findOneBy([
-
-                    'id' => $theme
-
-                ]);
+        $themes = $em->getRepository(Theme::class)->findOneBy(['id' => $theme]);
         $allLibelles = $themes->getCommentaireColonne();
 
-        /*tableau des commentaires communs */
-        $libellesFixes = array_merge([0 => array_keys($allDatas[0])[4]],
+        /* tableau des commentaires communs */
+        $libellesFixes = array_merge(
+            [0 => array_keys($allDatas[0])[4]],
             [0 => array_keys($allDatas[0])[5]],
             [0 => array_keys($allDatas[0])[3]],
             [0 => array_keys($allDatas[0])[7]],
             [0 => array_keys($allDatas[0])[9]],
-            [$allLibelles[0]]);
+            [$allLibelles[0]]
+        );
 
-        //contient tous les libelles selectionés dans l'application avec les commentaires fixes
+        // contient tous les libelles selectionés dans l'application avec les commentaires fixes
         $listIndicSelect = array_merge($libellesFixes, $libelles);
 
-        //contient tous les libelles du thème avec les commentaires fixes
+        // contient tous les libelles du thème avec les commentaires fixes
         $allLibellesAssoc = array_merge(array_slice($libellesFixes, 0, count($libellesFixes) - 1), $allLibelles);
 
         foreach ($allDatas as $allData) {
+            $dataFixes = [
+                $allData['nom_prat'],
+                $allData['prenom_prat'],
+                $allData['code_praticien'],
+                $allData['code_utaa'],
+                $allData['libelle_ville'],
+            ];
 
-            $nomPraticien[] = [];
-
-            //recuperer dans $allData les données des commentaires
-            $dataFixes = [];
-
-            //recupere le nom du praticien
-            $dataFixes[] = $allData['nom_prat'];
-
-            //recupere le prenom du praticien
-            $dataFixes[] = $allData['prenom_prat'];
-
-            //recupere le numéro du praticien
-            $dataFixes[] = $allData['code_praticien'];
-
-            //recupere l'utaa
-            $dataFixes[] = $allData['code_utaa'];
-
-            //recupere la ville
-            $dataFixes[] = $allData['libelle_ville'];
-
-
-            $jsonDatas = explode('["', json_decode($allData['datas']));
-            $datas = explode('"]', $jsonDatas[1]);
-
-            $allDatas = explode('","', $datas[0]);
-
-            $allDataReqGlobale = array_merge($dataFixes,
-                $allDatas);
+            $dataValues = is_array($allData['datas']) ? $allData['datas'] : json_decode($allData['datas'], true);
+            $allDataReqGlobale = array_merge($dataFixes, $dataValues);
 
             $allDataAssocLibelles = JsonHandler::mergeData($allLibellesAssoc, $allDataReqGlobale);
 
-
             //si tous les libelles sont demandés
             if ($libelles === ['allComments' => 'allComments']) {
-
-                if (array_key_exists('Classe d\'age', $allDataAssocLibelles)) {
-
+                if (array_key_exists("Classe d'age", $allDataAssocLibelles)) {
                     $dataAssocReqglobale[] = array_diff_key(
-
-                        array_slice($allDataAssocLibelles, 0, count($allDataAssocLibelles) - 3), ['Classe d\'age' => 3]
-
+                        array_slice($allDataAssocLibelles, 0, count($allDataAssocLibelles) - 3),
+                        ["Classe d'age" => 3]
                     );
-
                 } else {
-
                     $dataAssocReqglobale[] = array_slice($allDataAssocLibelles, 0, count($allDataAssocLibelles) - 2);
-
                 }
-
             } else {
-
-                $dataAssocReqglobale[] =
-
-                    array_intersect_key($allDataAssocLibelles,
-                        array_flip($listIndicSelect)
-
-                    );
+                $dataAssocReqglobale[] = array_intersect_key(
+                    $allDataAssocLibelles,
+                    array_flip($listIndicSelect)
+                );
             }
-
         }
 
         return $dataAssocReqglobale;
-
     }
+
 
 
     /**
