@@ -294,6 +294,10 @@ class ImportController extends AbstractController
                     }
 
 
+                    // flush remaining entities
+                    $em->flush();
+
+
                     //récupération des variables du fichier uploadé
                     $fileSize = $file->getClientSize();
 
@@ -312,7 +316,7 @@ class ImportController extends AbstractController
                         ->setNbRowUploaded(0);
 
                     //nombre de lignes uploadées
-                    $nbRowUploaded = count($existingPraticiens);
+                    $nbRowUploaded = $em->getRepository(Praticien::class)->count([]);
 
                     // ajoute à l'entité le nombre de lignes uploadées
                     $fichierUpload->setNbRowUploaded($nbRowUploaded);
