@@ -1,0 +1,97 @@
+{% extends " layout.html.twig" %}
+{% from "PHPKTemplateBundle::import.html.twig" import phpk %}
+
+{% block body %}
+
+    <h1 id="title-accueil" class="titre_req_globale" xmlns="http://www.w3.org/1999/html">Requête globale</h1>
+
+    {{ phpk('formulaire', { form: formRequeteGlobale }) }}
+
+    <script>
+
+        /* javascript agissant sur les checks des libelles dans requete globale */
+        jQuery(document).ready(function () {
+            jQuery("input[type='checkbox']").click(function () {
+                if (jQuery(this)[0].checked === true) {
+
+                    jQuery("input#appbundle_requeteglobale_theme_allComments").prop('disabled', true);
+                    jQuery(this)[0].setAttribute('checked', 'checked');
+
+                }
+                let libelleschekedSize = jQuery(".libelles:checked").length;
+                if (libelleschekedSize === 0) {
+
+                    jQuery("input#appbundle_requeteglobale_theme_allComments").prop('disabled', false);
+
+                }
+
+            });
+
+        });
+
+
+        // Syntaxe MooTools sur le changement des utaas en fonction des départements ( car ne fonctionne pas en jQuery)
+        window.addEvent('domready', function () {
+
+            $('appbundle_requeteglobale_praticien_utaa_departement').addEvent('change', function () {
+
+                let departementSelector = $(this);
+
+                let idDepartement = departementSelector.get('value');
+
+                let utaasSelect = $('appbundle_requeteglobale_praticien_utaa_code_utaa');
+
+                utaasSelect.empty();
+
+                let myRequest = new Request({
+
+                    url: "{{ path('utaa_ajax_list_by_departement') }}",
+                    method: 'POST',
+                    data: {
+
+                        'departementId': idDepartement
+
+
+                    },
+
+                    onSuccess:
+                        function (responseText, responseXML) {
+
+
+                            let utaas = JSON.parse(responseText);
+
+                            if (utaas.length > 1) {
+                                $('appbundle_requeteglobale_praticien_utaa_code_utaa').adopt(new Element('option', {
+                                    'value': '',
+                                    'text': "Toutes les Utaas"
+                                }))
+                            }
+
+                            let i;
+
+                            for (i = 0; i < utaas.length; i++) {
+
+                                $('appbundle_requeteglobale_praticien_utaa_code_utaa').adopt(new Element('option', {
+                                    'value': utaas[i].id,
+                                    'text': utaas[i].codeUtaa
+                                }))
+
+                            }
+
+                            $('appbundle_requeteglobale_praticien_utaa_code_utaa_chzn').empty().dispose();
+                            new Chosen($('appbundle_requeteglobale_praticien_utaa_code_utaa'));
+                            $('appbundle_requeteglobale_praticien_utaa_code_utaa').fireEvent('liszt:updated');
+
+                        }
+                });
+
+                myRequest.send();
+
+            });
+
+        });
+
+    </script>
+
+
+{% endblock %}

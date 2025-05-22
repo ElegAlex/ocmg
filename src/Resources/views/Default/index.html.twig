@@ -1,0 +1,65 @@
+{% extends " layout.html.twig" %}
+{% from "PHPKTemplateBundle::import.html.twig" import phpk %}
+{% block body %}
+
+    <div id="pos_accueil">
+    <div id="pos_texte">
+    {% if textAccueil|length >=1 %}
+        {% for  text in textAccueil %}
+
+            <h1 id="titre-accueil-ocmg" xmlns="http://www.w3.org/1999/html">{{ text.titreAccueil }}</h1>
+
+
+
+            {#<h2 id="pos_textaccueil" >#}{% autoescape %}{{ text.textAccueil|raw }}{% endautoescape %}{#</h2>#}
+
+
+
+
+
+            <p id="date-update">Mis à jour le <span id="date"
+                                                    class="valeur">{{ text.updatedAt | date("d/m/y") }}</span>
+            </p>
+
+
+
+
+
+        {% endfor %}
+
+        </div>
+        <div id="pos_ciblages">
+
+            <div>
+
+                <h2 id="title-theme"><span class="valeur">Les thèmes retenus sont</span></h2>
+
+            </div>
+
+            <div id="list-ciblage">
+
+                <ul id="list">
+
+                    {% for  singleciblage in ciblage %}
+
+                        <li id="tab">{{ singleciblage.ciblage }}</li>
+
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+        </div>
+        </div>
+    {% else %}
+        <h1 id="title-accueil" xmlns="http://www.w3.org/1999/html">
+            Veuillez paramétrer votre texte d'accueil
+        </h1>
+        <h2 style="text-align: center">
+            <a style="color: #6b9311" href={{ url('app_textaccueil_ajouter') }}>
+                Cliquez ici </a>
+        </h2>
+    {% endif %}
+
+{% endblock %}

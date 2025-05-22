@@ -8,69 +8,43 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-          "AppBundle\\": "src/AppBundle",
-          "CNAMTS\\PHPK\\TemplateBundle\\": ""
-
-        },
-        "classmap": ["app/AppKernel.php", "app/AppCache.php"],
-        "exclude-from-classmap": ["vendor/symfony/framework-standard-edition/"]
+            "App\\": "src/",
+            "CNAMTS\\PHPK\\TemplateBundle\\": ""
+        }
     },
     "autoload-dev": {
         "files": ["vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"]
     },
     "require": {
-        "php": "^7",
+        "php": "^8.1",
         "ckeditor/ckeditor": "^4.11",
         "cnamts/phpk/bundles/phpk-core-bundle": "^2.1",
         "cnamts/phpk/bundles/phpk-export-bundle": "^2.1",
         "cnamts/phpk/bundles/phpk-security-bundle": "^2.1",
         "cnamts/phpk/bundles/phpk-template-bundle": "^2.1",
         "components/jquery": "^3.3",
-        "doctrine/doctrine-bundle": "^1.9",
+        "doctrine/doctrine-bundle": "^2.9",
         "friendsofsymfony/ckeditor-bundle": "^2.0",
         "friendsofsymfony/jsrouting-bundle": "~1.6",
         "knplabs/knp-snappy-bundle": "^1.6",
         "league/csv": "^9.1",
-        "symfony/framework-standard-edition": "~2.8|~3.4",
-        "symfony/webpack-encore-pack": "^1.0",
+        "symfony/skeleton": "^7.3",
+        "symfony/webpack-encore-bundle": "^1.0",
         "syslogic/doctrine-json-functions": "^2.1"
     },
     "require-dev": {
-      "cnamts/phpk/bundles/phpk-webprofiler-bundle": "~2.1",
-      "doctrine/doctrine-fixtures-bundle": "^3.0",
-        "sensio/generator-bundle": "~3.0",
-      "symfony/phpunit-bridge": "~2.7"
+        "cnamts/phpk/bundles/phpk-webprofiler-bundle": "~2.1",
+        "doctrine/doctrine-fixtures-bundle": "^3.0",
+        "symfony/phpunit-bridge": "^7.3"
     },
-    "scripts": {
-        "post-install-cmd": [
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "CNAMTS\\PHPK\\CoreBundle\\Composer\\ScriptHandler::postBuild"
-        ],
-        "post-update-cmd": [
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap"
-        ],
-        "post-create-project-cmd": [
-            "CNAMTS\\PHPK\\CoreBundle\\Composer\\ScriptHandler::createProject",
-            "CNAMTS\\PHPK\\CoreBundle\\Composer\\ScriptHandler::postBuild"
-        ],
-        "pre-autoload-dump": [
-            "CNAMTS\\PHPK\\CoreBundle\\Composer\\ScriptHandler::preBuild"
-        ]
-    },
+    "scripts": {},
     "config": {
-        "bin-dir": "bin",
         "sort-packages": true
     },
     "extra": {
-        "symfony-app-dir": "app",
-        "symfony-bin-dir": "bin",
-        "symfony-web-dir": "web",
-        "symfony-assets-install": "relative",
-        "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
-        },
-        "branch-alias": {
-            "dev-master": "2.8-dev"
+        "symfony": {
+            "allow-contrib": false,
+            "require": "7.3.*"
         }
     }
 }

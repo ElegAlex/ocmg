@@ -1,0 +1,21 @@
+app_requete_globale:
+    path: /globale
+    defaults: { _controller: 'App\\Controller\\RequeteController\\RequeteGlobaleController::requeteGlobaleAction' }
+    methods: POST|GET
+
+app_requete_praticien:
+    path: /praticien
+    defaults: { _controller: 'App\\Controller\\RequeteController\\RequeteGlobaleController::praticienAction' }
+
+app_requete_globale_resultat:
+    path: /globale/resultat/{periodeId}/{periode}/{themeId}/{depId}/{utaaId}/{ageId}
+    defaults: { _controller: 'App\\Controller\\RequeteController\\RequeteGlobaleController::resultatAction' }
+
+app_requete_globale_export:
+    path: /globale/export/{periode}/{theme}/{dep}/{utaa}/{age}
+    defaults: { _controller: 'App\\Controller\\RequeteController\\RequeteGlobaleController::exportAction' }
+
+utaa_ajax_list_by_departement:
+    path: /ajax_utaas
+    defaults: { _controller: 'App\\Controller\\RequeteController\\RequeteGlobaleController::ajaxListUtaaByDepartementAction'}
+    methods: POST|GET
