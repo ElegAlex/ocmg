@@ -14,6 +14,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class ageType
@@ -29,7 +30,17 @@ class ageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-        $idTheme = $_POST['appbundle_requeteglobale']['theme']['theme'];
+        // Retrieve the theme id either from options or from the request data
+        $idTheme = $options['theme_id'] ?? null;
+
+        // The field can be added dynamically without the option, in that case
+        // try to read it from the submitted request (when available)
+        if (null === $idTheme && isset($options['request'])) {
+            $formData = $options['request']->request->get('appbundle_requeteglobale', []);
+            if (isset($formData['theme']['theme'])) {
+                $idTheme = $formData['theme']['theme'];
+            }
+        }
 
         $builder
             ->add('code_age', EntityType::class, [
@@ -63,9 +74,9 @@ class ageType extends AbstractType
     {
         $resolver->setDefaults(
             [
-
                 'data_class' => Age::class,
-
+                'theme_id' => null,
+                'request' => null,
             ]
         );
     }

@@ -97,56 +97,50 @@ class RequeteGlobaleController extends AbstractController
                 //recupère la période
                 $periode = $periodeEnCours[0]->getCode();
 
-                if (isset($_POST['appbundle_requeteglobale']['theme']) && count($_POST['appbundle_requeteglobale']['theme']) >= 2) {
+                $submittedData = $request->request->get('appbundle_requeteglobale', []);
 
-                    if (isset($_POST['appbundle_requeteglobale']['praticien']['utaa']['code_utaa'])
-                        && $_POST['appbundle_requeteglobale']['praticien']['utaa']['code_utaa'] !== '') {
+                if (isset($submittedData['theme']) && count($submittedData['theme']) >= 2) {
 
-                        $utaaId = $_POST['appbundle_requeteglobale']['praticien']['utaa']['code_utaa'];
-
+                    if (!empty($submittedData['praticien']['utaa']['code_utaa'])) {
+                        $utaaId = $submittedData['praticien']['utaa']['code_utaa'];
                     } else {
-
                         $utaaId = '0';
-
                     }
 
                     //récupere l'ageId
-                    if (isset($_POST['appbundle_requeteglobale']['age'])) {
-
-                        $ageId = $_POST['appbundle_requeteglobale']['age']['code_age'];
-
+                    if (isset($submittedData['age'])) {
+                        $ageId = $submittedData['age']['code_age'];
                     } else {
-
                         $ageId = '';
                     }
 
-                    if ($ageId === '') $ageId = '0';
+                    if ($ageId === '') {
+                        $ageId = '0';
+                    }
 
                     //recupère l id de la période
                     $periodeId = $periodeEnCours[0]->getId();
 
                     //recupère id de theme
-                    $themeId = $_POST['appbundle_requeteglobale']['theme']['theme'];
+                    $themeId = $submittedData['theme']['theme'];
 
                     //recupère le tableau de commentaires et mise en session
                     $commentaire = array_diff_key(
-                        $_POST['appbundle_requeteglobale']['theme'],
-                        ['theme' => 0]);
+                        $submittedData['theme'],
+                        ['theme' => 0]
+                    );
 
                     $session->set('commentaire', $commentaire);
 
                     //récupère l'id du departement
-                    if ($_POST['appbundle_requeteglobale']['praticien']['utaa']['departement']) {
-
-                        $depId = $_POST['appbundle_requeteglobale']['praticien']['utaa']['departement'];
-
+                    if (!empty($submittedData['praticien']['utaa']['departement'])) {
+                        $depId = $submittedData['praticien']['utaa']['departement'];
                     } else {
-
                         $depId = '';
-
-
                     }
-                    if ($depId === '') $depId = '0';
+                    if ($depId === '') {
+                        $depId = '0';
+                    }
 
                     return $this->redirectToRoute('app_requete_globale_resultat'
 
