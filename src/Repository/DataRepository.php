@@ -214,9 +214,11 @@ class DataRepository extends EntityRepository implements Repository
     {
 
         $connexion = $this->getEntityManager()->getConnection();
-        $sql = 'SELECT distinct d.age_id from data d where d.theme_id=' . $themeId;
+        $sql = 'SELECT distinct d.age_id from data d where d.theme_id = :themeId';
 
-        $statement = $connexion->query($sql);
+        $statement = $connexion->prepare($sql);
+        $statement->bindValue('themeId', (int) $themeId, \PDO::PARAM_INT);
+        $statement->execute();
 
         return $statement->fetchAll();
     }
