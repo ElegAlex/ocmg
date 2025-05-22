@@ -138,13 +138,11 @@ class Utaa
         foreach ($praticiens as $praticien) {
             if (!$this->praticiens->contains($praticien)) {
                 $this->praticiens->add($praticien);
-                $this->setUtaa($this);
-
+                $praticien->setUtaa($this);
             }
-
         }
-        return $this;
 
+        return $this;
     }
 
     /**
