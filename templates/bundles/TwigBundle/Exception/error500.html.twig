@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div>
+
+        <div class="chzn-container">
+
+
+            <h1>
+                Erreur Serveur interne: Rafraichir la page
+                ou
+                <a href="{{ path('app_index') }}">Retour Accueil</a>
+
+            </h1>
+            <h2>
+                {{ status_code }}- {{ status_text }}
+
+            </h2>
+
+
+        </div>
+
+    </div>
+
+{% endblock %}
