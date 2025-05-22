@@ -1,0 +1,10 @@
+app_region_show:
+  path: /show
+  defaults: { _controller: 'AppBundle:AdministrationController\AdminRegion:show' }
+  methods: POST|GET
+
+app_region_isactive:
+  path: /{id}/isactive/
+  defaults: { _controller: 'AppBundle:AdministrationController\AdminRegion:isregionactive' }
+  methods: POST|GET
+

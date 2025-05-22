@@ -1,0 +1,261 @@
+{% extends "PHPKTemplateBundle::layout.html.twig" %}
+
+{% block head %}
+    {{ parent() }}
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        jQuery.noConflict();
+    </script>
+    <style>
+
+        /*CSS page d 'accueil*/
+
+        div#pos_accueil {
+
+            display: flex;
+
+        }
+
+        div#pos_texte {
+
+            font-size: 150%;
+            text-align: justify;
+
+
+        }
+
+        h1#titre-accueil-ocmg {
+
+            margin-bottom: 10%;
+
+        }
+
+        p#date-update {
+
+            margin-top: 7%;
+            text-align: right;
+            font-weight: bold;
+
+
+        }
+
+        div#pos_ciblages {
+
+            padding-left: 10%;
+
+        }
+
+        h2#title-theme {
+
+            text-align: center;
+            font-size: 210%;
+            color: #098dae;
+            margin-bottom: 10%;
+
+        }
+
+        div#list-ciblage {
+
+            font-size: 150%;
+            margin-left: 10%;
+
+
+        }
+
+        ul#list > li#tab {
+
+            padding-bottom: 10%;
+            font-size: 120%;
+
+        }
+
+        div#aide {
+            margin-top: 10%;
+            text-align: center;
+        }
+
+        a.aide {
+
+            font-size: 200%;
+            color: #6b9311;
+            text-align: center;
+            margin-top: 3%;
+
+
+        }
+
+        /*CSS requête->requete globale*/
+        /*rend invisible l\'asterisque des labels dans les formulaires*/
+        div#coeur-de-page > h1.titre_req_globale {
+            font-size: 300%;
+        }
+
+        span.obligatoire,
+        label[for=appbundle_requeteglobale_theme],
+        label[for=appbundle_requeteglobale_periode] {
+            visibility: hidden;
+
+        }
+
+        form[name='appbundle_requeteglobale'] {
+
+            display: table-caption;
+            width:400px;
+
+        }
+
+        div.class_periode,
+        div.class_theme {
+
+            margin-right: 20%;
+
+        }
+
+        label[for='input_appbundle_requeteglobale_theme_theme'],
+        label[for='input_appbundle_requeteglobale_periode_code'],
+        label[for='input_appbundle_requeteglobale_praticien_utaa_departement'],
+        label[for='input_appbundle_requeteglobale_praticien_utaa_code_utaa'],
+        label[for='appbundle_requeteglobale_age'] {
+
+            text-align: left;
+
+        }
+        label[for='input_appbundle_requeteglobale_periode_code']{
+
+            visibility: hidden;
+        }
+        label[for='input_appbundle_requeteglobale_praticien_utaa_departement'],
+        label[for='input_appbundle_requeteglobale_praticien_utaa_code_utaa']{
+
+            margin-left: 10px;
+
+        }
+        div#appbundle_requeteglobale_praticien_utaa_departement_chzn,
+        div#appbundle_requeteglobale_praticien_utaa_code_utaa_chzn{
+
+            margin-left: -200px;
+            margin-top: 25px;
+
+        }
+
+        div#appbundle_requeteglobale_praticien_utaa_departement_chzn>a,
+        div#appbundle_requeteglobale_praticien_utaa_code_utaa_chzn>a{
+
+           width : 185px;
+
+        }
+
+        #appbundle_requeteglobale_suppr {
+            margin-left: 190%;
+            margin-top: -15%;
+        }
+
+        #appbundle_requeteglobale_form1 {
+            margin-left: 150%;
+            margin-top: -40%;
+        }
+
+        #appbundle_requeteglobale_age_code_age_chzn {
+            margin-left: 140%;
+            margin-top: 5%;
+        }
+        #label_age {
+            margin-left: 65%;
+            margin-bottom: 10%;
+        }
+        /*rend invisible la premiere occurence de commentaire dans form requete globale*/
+        label[for=appbundle_requeteglobale_theme_0],
+        input#appbundle_requeteglobale_theme_0 {
+
+            display: none;
+
+        }
+      div.class_praticien {
+
+            margin-bottom: -50%;
+
+        }
+
+        .section .ligne{
+
+            padding: 0px 0px 0px 20px;
+
+        }
+        div.ligne > label#label_age {
+
+            margin-bottom: -20%;
+
+        }
+
+
+        /*CSS resultat requête globale*/
+        div#table-resultat {
+
+            text-align: center;
+
+        }
+
+        h1#titre-resultat {
+
+            font-size: 200%;
+
+        }
+
+        h2#sous-titre-resultat {
+
+            font-size: 120%;
+            color: #63a563;
+
+        }
+
+        div#ligne-sous-titre-resultat {
+
+            display: inline-flex;
+            text-align: center;
+
+        }
+
+        a.lien-export-resultat {
+
+            font-size: 170%
+
+        }
+
+        i#icone-export {
+
+            font-size: 200%;
+        }
+
+        /*CSS parametrage de la région*/
+        div#param_region {
+
+            display: flex;
+
+        }
+
+        /* CSS paramétrage de la période ciblée*/
+        div.ligne > span.zone_champ_saisie > div.zone_combo > div#appBundle_periode_is_semestre_chzn {
+
+            margin-left: 65%;
+
+        }
+
+        /*CSS paramétrage du texte accueil*/
+        span#cke_appBundle_textAccueil_textAccueil {
+
+            width: 100%;
+
+        }
+
+    </style>
+
+
+{% endblock %}
+
+

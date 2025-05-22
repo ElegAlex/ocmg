@@ -1,0 +1,54 @@
+{% extends "AppBundle::layout.html.twig" %}
+{% from "PHPKTemplateBundle::import.html.twig" import phpk %}
+{% block body %}
+
+    <div id="table-resultat">
+        <h1 id="titre-resultat" xmlns="http://www.w3.org/1999/html">Résultat Requête globale </h1>
+
+<div id="ligne-sous-titre-resultat">
+        <h2 id="sous-titre-resultat">
+
+            <br>
+            <u id="periode"> Période: {{ periode }}</u>
+            <br>
+            <u>Thème:  {{ theme }}</u>
+            <br>
+            <u>Département:  {{ codeDep }} -  {{ libelleDep }}</u>
+            <br>
+            <u>Utaa:  {{ codeUtaa }}</u>
+            <br>
+            {%  if age is not same as ('0') %}
+
+                <u>Tranche d'âge : {{ age }}</u>
+
+            {%  endif %}
+        </h2>
+        <div id="section-export" >
+
+                <a class="lien-export-resultat" href=" {{ path('app_requete_globale_export' ,
+
+                    {'periode': periode,'theme': theme, 'dep': codeDep, 'utaa': codeUtaa, 'age':age}) }}" >
+
+                    <i id="icone-export" class="icone-pictogramme icone-pictogramme-document" ></i>Export .csv
+                </a>
+
+        </div>
+</div>
+
+    {{ phpk('tableau',{ tableau: listeRequeteGlobale }) }}
+        {{ phpk('boutons',
+
+            [{
+
+                predefined: 'retour',
+                url:'/requete/globale',
+
+            }]
+
+        ) }}
+    </div>
+
+
+
+
+{% endblock %}

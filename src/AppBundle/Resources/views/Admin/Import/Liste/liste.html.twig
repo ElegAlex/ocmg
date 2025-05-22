@@ -1,0 +1,34 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+
+{% from "PHPKTemplateBundle::import.html.twig" import phpk %}
+
+{% block body %}
+
+    {{ phpk('tableau',{ tableau: listeUpload }) }}
+
+    {% if fichiersUpload|length == 0 %}
+
+    {{ phpk('bouton', {
+        label: 'charger une liste de praticiens',
+        predefined:'etapesuivante',
+        url: path('app_import_fichier_praticiens')
+
+    }) }}
+
+    {% endif %}
+    {% if fichiersUpload|length >=1 %}
+
+
+
+        {{ phpk('bouton', {
+
+            label: 'charger un nouveau ciblage',
+            predefined:'etapesuivante',
+            url: path('app_import_fichier_ciblage')
+
+        }) }}
+    {% endif %}
+
+
+{% endblock %}

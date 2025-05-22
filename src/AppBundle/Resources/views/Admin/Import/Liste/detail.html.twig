@@ -1,0 +1,68 @@
+
+{% extends "AppBundle::layout.html.twig" %}
+
+{% from "PHPKTemplateBundle::import.html.twig" import phpk %}
+
+{% block body %}
+
+    {% if fichiersUpload.filename is same as ('praticien') %}
+
+        {{ phpk('tableau',{ tableau: listePraticiensUpload }) }}
+
+        {{ phpk('boutons',
+
+            [ {
+
+                predefined: 'retour',
+                url: path('app_import_fichier_liste')
+
+            }]
+
+        ) }}
+
+        {% if theme|length==0 %}
+
+            {{ phpk('boutons',
+
+                [{
+
+                    predefined: 'confirmer',
+                    url: path('app_import_fichier_delete', { id: fichiersUpload.id })
+
+                }]
+
+            ) }}
+
+        {% endif %}
+
+    {% else %}
+
+        {{ phpk('tableau',{ tableau: listeCiblageUpload }) }}
+
+       {# {{ phpk('boutons',
+
+            [{
+
+                predefined: 'confirmer',
+                url: path('app_import_fichier_delete', { id: fichiersUpload.id })
+
+            }]
+
+        ) }}#}
+
+        {{ phpk('boutons',
+
+            [{
+
+                predefined: 'retour',
+                url: path('app_import_fichier_liste')
+
+            }]
+
+        ) }}
+
+    {% endif %}
+
+{% endblock %}
+
+

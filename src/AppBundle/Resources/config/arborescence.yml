@@ -1,0 +1,72 @@
+# Modifiez ce fichier pour qu'il corresponde à votre application
+phpk_core:
+    arborescence:
+        app_index:
+            libelle: Accéder au menu
+            habilitations: [ OCMG_UTILISATEUR , OCMG_ADMIN  ]
+            route: app_index
+        app_requete:
+            libelle: Requêtes
+          #route: app_requete
+            habilitations: [ OCMG_UTILISATEUR , OCMG_ADMIN ]
+            fils:
+                app_index_download_user:
+                    libelle: Télécharger l'aide Utilisateur
+                    route: app_index_download_user
+                app_requete_globale:
+                    libelle: requête globale
+                    route: app_requete_globale
+                    fils:
+                        app_requete_globale_resultat:
+                            libelle: resultat requete globale
+                            route: app_requete_globale_resultat
+                            menu: false
+                  #app_requete_praticien:
+                  #  libelle: requete par numero de praticien
+                  # route: app_requete_praticien
+        app_admin:
+            libelle: Administration
+            habilitations: [ OCMG_ADMIN ]
+
+            fils:
+                app_index_download_admin:
+                    libelle: Télécharger l'aide Administrateur
+                    route: app_index_download_admin
+                app_region_show:
+                    libelle: Paramétrage de la region
+                    route: app_region_show
+                app_periode_ajouter:
+                    libelle: Paramétrage de la période ciblée
+                    route: app_periode_ajouter
+                app_admin_paramciblage:
+                    libelle: Paramétrage des thèmes ciblés
+                    route: app_admin_paramciblage
+                app_textaccueil_ajouter:
+                    libelle: Paramétrage du texte d'accueil
+                    route: app_textaccueil_ajouter
+                app_import_fichier:
+                    libelle: Import des fichiers
+                    route: app_import_fichier_liste
+                    fils:
+                        app_import_fichier_detail:
+                            libelle: detail du fichier importé
+                            route: app_import_fichier_detail
+                            menu: false
+
+                        app_import_fichier_praticiens:
+                            libelle: import du fichier des praticiens
+                            route: app_import_fichier_praticiens
+                            menu: false
+
+                        app_import_fichier_ciblage:
+                            libelle: import des fichiers de ciblage
+                            route: app_import_fichier_ciblage
+                            menu: false
+
+                        app_import_fichier_delete:
+                            libelle: supprimer fichiers de ciblage
+                            route: app_import_fichier_delete
+                            menu: false
+
+
+# Vous pouvez également configurer phpk_core.interapplications et phpk_core.outils dans ce fichier si vous le souhaitez

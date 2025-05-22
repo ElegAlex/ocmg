@@ -1,0 +1,39 @@
+app_index:
+    path:     /
+    defaults: { _controller: 'AppBundle:Default:index' }
+
+app_index_download_admin:
+    path: /download/docUser
+    defaults: { _controller: 'AppBundle:Default:downloadDocAdmin'}
+
+app_index_download_user:
+    path: /download/docAdmin
+    defaults: { _controller: 'AppBundle:Default:downloadDocUser'}
+
+app_index_download:
+    path: /download
+    defaults: { _controller: 'AppBundle:Default:download'}
+
+app_requete:
+    resource: "@AppBundle/Resources/config/routing/requete.yml"
+    prefix:   /requete
+
+app_admin:
+    resource: "@AppBundle/Resources/config/routing/adminCiblage.yml"
+    prefix:   /admin
+    
+app_admin_textaccueil:
+    resource: "@AppBundle/Resources/config/routing/adminTextAccueil.yml"
+    prefix:   /textAccueil
+
+app_admin_periode:
+    resource: "@AppBundle/Resources/config/routing/adminperiode.yml"
+    prefix:   /periode
+
+app_admin_region:
+    resource: "@AppBundle/Resources/config/routing/adminRegion.yml"
+    prefix:   /local
+
+app_import_fichier:
+    resource: "@AppBundle/Resources/config/routing/import.yml"
+    prefix:   /import
